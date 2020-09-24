@@ -1,0 +1,38 @@
+using System.Text;
+using System.Threading.Tasks;
+using Antlr4;
+using Antlr4.Runtime;
+namespace C2
+{
+class Program
+{
+static void Main(string[] args)
+{
+string line = "";
+//VARIABLE PARA ALMACENAR LA CADENA DE ENTRADA
+while (true)
+{
+line = Console.ReadLine();
+//SE ALMACENA LA CADENA DE ENTRADA
+if (line.Contains("EXIT") || line.Contains("exit"))
+//SI DETECTA EXIT SALE DEL PROGRAMA
+break;
+calcLexer lex = new calcLexer(new AntlrInputStream(line + Environment.NewLine));
+//CREAMOS UN LEXER CON LA CADENA QUE ESCRIBIO EL USUARIO
+CommonTokenStream tokens = new CommonTokenStream(lex);
+//CREAMOS LOS TOKENS SEGUN EL LEXER CREADO
+calcParser parser = new calcParser(tokens);
+//CREAMOS EL PARSER CON LOS TOKENS CREADOS
+try
+{
+parser.expr();
+//SE VERIFICA QUE EL ANALIZADOR EMPIECE CON LA EXPRESION
+}
+catch (RecognitionException e)
+{
+Console.Error.WriteLine(e.StackTrace);
+}
+}
+}
+}
+}
