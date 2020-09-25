@@ -7,3 +7,12 @@ C:\Users\dany_\Desktop\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.cs
 C:\Users\dany_\Desktop\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.csproj.CopyComplete
 C:\Users\dany_\Desktop\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.exe
 C:\Users\dany_\Desktop\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.pdb
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\bin\Debug\P1_Calculadora.exe
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\bin\Debug\P1_Calculadora.pdb
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\bin\Debug\Antlr3.Runtime.dll
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\bin\Debug\Antlr3.Runtime.xml
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.csprojAssemblyReference.cache
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.csproj.CoreCompileInputs.cache
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.csproj.CopyComplete
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.exe
+C:\Users\dany_\Documents\LaboProgra\P1\P1_Calculadora\P1_Calculadora\obj\Debug\P1_Calculadora.pdb

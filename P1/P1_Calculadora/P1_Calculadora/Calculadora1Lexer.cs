@@ -582,12 +582,26 @@ public partial class Calculadora1Lexer : Antlr.Runtime.Lexer
                     break;
                 default:
                     {
-                        NoViableAltException nvae = new NoViableAltException("", 3, 0, input);
-                        DebugRecognitionException(nvae);
-                        throw nvae;
+                        
+                        /*try
+                        {*/
+                            NoViableAltException nvae = new NoViableAltException("", 3, 0, input);
+                            DebugRecognitionException(nvae);
+                            throw nvae;
+                            //throw nvae;
+                        /*}
+                        catch(Exception e)
+                        {
+                            Console.WriteLine("Error Lexico, La Gramatica No Reconoce La Cadena De Entrada");
+                        }*/
+                        
                     }
             }
 
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine("Error Lexico, La Gramatica No Reconoce La Cadena De Entrada");
         }
         finally { DebugExitDecision(3); }
         switch (alt3)
