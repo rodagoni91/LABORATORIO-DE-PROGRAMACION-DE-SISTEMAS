@@ -1,0 +1,16 @@
+Error Sintactico linea: 11 ---'	BYTE	X'123'
+
+Error Sintactico linea: 17 ---'BYTE	BYTE	C'11''
+
+Error Sintactico linea: 23 ---'HOLA	BYTE	X123''
+
+Error Sintactico linea: 24 ---'OTRO	BYTE	'ASD''
+
+Error Sintactico linea: 11 ---'	BYTE	X'123'
+
+Error Sintactico linea: 17 ---'BYTE	BYTE	C'11''
+
+Error Sintactico linea: 23 ---'HOLA	BYTE	X123''
+
+Error Sintactico linea: 24 ---'OTRO	BYTE	'ASD''
+
