@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// $ANTLR 3.4 C:\\Users\\dany_\\Desktop\\SIC_gramatica.g 2020-10-03 17:38:20
+// $ANTLR 3.4 C:\\Users\\dany_\\Desktop\\SIC_gramatica.g 2020-10-16 11:37:50
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -27,2212 +27,1493 @@ using ConditionalAttribute = System.Diagnostics.ConditionalAttribute;
 [System.CLSCompliant(false)]
 public partial class SIC_gramaticaLexer : Antlr.Runtime.Lexer
 {
-	public const int EOF=-1;
-	public const int T__9=9;
-	public const int T__10=10;
-	public const int T__11=11;
-	public const int T__12=12;
-	public const int T__13=13;
-	public const int T__14=14;
-	public const int T__15=15;
-	public const int T__16=16;
-	public const int T__17=17;
-	public const int T__18=18;
-	public const int T__19=19;
-	public const int T__20=20;
-	public const int T__21=21;
-	public const int T__22=22;
-	public const int T__23=23;
-	public const int T__24=24;
-	public const int T__25=25;
-	public const int T__26=26;
-	public const int T__27=27;
-	public const int T__28=28;
-	public const int T__29=29;
-	public const int T__30=30;
-	public const int T__31=31;
-	public const int T__32=32;
-	public const int T__33=33;
-	public const int T__34=34;
-	public const int T__35=35;
-	public const int T__36=36;
-	public const int T__37=37;
-	public const int T__38=38;
-	public const int T__39=39;
-	public const int T__40=40;
-	public const int T__41=41;
-	public const int T__42=42;
-	public const int FINL=4;
-	public const int FINLINEA=5;
-	public const int NL=6;
-	public const int NUM=7;
-	public const int SIMBOLO=8;
+    public const int EOF = -1;
+    public const int T__11 = 11;
+    public const int T__12 = 12;
+    public const int T__13 = 13;
+    public const int DIR = 4;
+    public const int INT = 5;
+    public const int NOMBRE = 6;
+    public const int OPERACION = 7;
+    public const int OPERACIONDIRECTIVA = 8;
+    public const int START = 9;
+    public const int TIPODIRECTIVA = 10;
 
     // delegates
     // delegators
 
-	public SIC_gramaticaLexer()
-	{
-		OnCreated();
-	}
-
-	public SIC_gramaticaLexer(ICharStream input )
-		: this(input, new RecognizerSharedState())
-	{
-	}
-
-	public SIC_gramaticaLexer(ICharStream input, RecognizerSharedState state)
-		: base(input, state)
-	{
-
-		OnCreated();
-	}
-	public override string GrammarFileName { get { return "C:\\Users\\dany_\\Desktop\\SIC_gramatica.g"; } }
-
-	private static readonly bool[] decisionCanBacktrack = new bool[0];
-
-	[Conditional("ANTLR_TRACE")]
-	protected virtual void OnCreated() {}
-	[Conditional("ANTLR_TRACE")]
-	protected virtual void EnterRule(string ruleName, int ruleIndex) {}
-	[Conditional("ANTLR_TRACE")]
-	protected virtual void LeaveRule(string ruleName, int ruleIndex) {}
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__9() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__9() {}
-
-    // $ANTLR start "T__9"
-    [GrammarRule("T__9")]
-    private void mT__9()
+    public SIC_gramaticaLexer()
     {
-    	EnterRule_T__9();
-    	EnterRule("T__9", 1);
-    	TraceIn("T__9", 1);
-    		try
-    		{
-    		int _type = T__9;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:7:6: ( 'ADD' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:7:8: 'ADD'
-    		{
-    		DebugLocation(7, 8);
-    		Match("ADD"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__9", 1);
-    		LeaveRule("T__9", 1);
-    		LeaveRule_T__9();
-        }
+        OnCreated();
     }
-    // $ANTLR end "T__9"
 
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__10() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__10() {}
-
-    // $ANTLR start "T__10"
-    [GrammarRule("T__10")]
-    private void mT__10()
+    public SIC_gramaticaLexer(ICharStream input)
+        : this(input, new RecognizerSharedState())
     {
-    	EnterRule_T__10();
-    	EnterRule("T__10", 2);
-    	TraceIn("T__10", 2);
-    		try
-    		{
-    		int _type = T__10;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:8:7: ( 'AND' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:8:9: 'AND'
-    		{
-    		DebugLocation(8, 9);
-    		Match("AND"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__10", 2);
-    		LeaveRule("T__10", 2);
-    		LeaveRule_T__10();
-        }
     }
-    // $ANTLR end "T__10"
+
+    public SIC_gramaticaLexer(ICharStream input, RecognizerSharedState state)
+        : base(input, state)
+    {
+
+        OnCreated();
+    }
+    public override string GrammarFileName { get { return "C:\\Users\\dany_\\Desktop\\SIC_gramatica.g"; } }
+
+    private static readonly bool[] decisionCanBacktrack = new bool[0];
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__11() {}
+    protected virtual void OnCreated() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__11() {}
+    protected virtual void EnterRule(string ruleName, int ruleIndex) { }
+    [Conditional("ANTLR_TRACE")]
+    protected virtual void LeaveRule(string ruleName, int ruleIndex) { }
+
+    [Conditional("ANTLR_TRACE")]
+    protected virtual void EnterRule_T__11() { }
+    [Conditional("ANTLR_TRACE")]
+    protected virtual void LeaveRule_T__11() { }
 
     // $ANTLR start "T__11"
     [GrammarRule("T__11")]
     private void mT__11()
     {
-    	EnterRule_T__11();
-    	EnterRule("T__11", 3);
-    	TraceIn("T__11", 3);
-    		try
-    		{
-    		int _type = T__11;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:9:7: ( 'BYTE' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:9:9: 'BYTE'
-    		{
-    		DebugLocation(9, 9);
-    		Match("BYTE"); 
+        EnterRule_T__11();
+        EnterRule("T__11", 1);
+        TraceIn("T__11", 1);
+        try
+        {
+            int _type = T__11;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:7:7: ( ',X' )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:7:9: ',X'
+            {
+                DebugLocation(7, 9);
+                Match(",X");
 
 
-    		}
+            }
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__11", 3);
-    		LeaveRule("T__11", 3);
-    		LeaveRule_T__11();
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("T__11", 1);
+            LeaveRule("T__11", 1);
+            LeaveRule_T__11();
         }
     }
     // $ANTLR end "T__11"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__12() {}
+    protected virtual void EnterRule_T__12() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__12() {}
+    protected virtual void LeaveRule_T__12() { }
 
     // $ANTLR start "T__12"
     [GrammarRule("T__12")]
     private void mT__12()
     {
-    	EnterRule_T__12();
-    	EnterRule("T__12", 4);
-    	TraceIn("T__12", 4);
-    		try
-    		{
-    		int _type = T__12;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:10:7: ( 'C' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:10:9: 'C'
-    		{
-    		DebugLocation(10, 9);
-    		Match('C'); 
+        EnterRule_T__12();
+        EnterRule("T__12", 2);
+        TraceIn("T__12", 2);
+        try
+        {
+            int _type = T__12;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:8:7: ( 'END' )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:8:9: 'END'
+            {
+                DebugLocation(8, 9);
+                Match("END");
 
-    		}
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__12", 4);
-    		LeaveRule("T__12", 4);
-    		LeaveRule_T__12();
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("T__12", 2);
+            LeaveRule("T__12", 2);
+            LeaveRule_T__12();
         }
     }
     // $ANTLR end "T__12"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__13() {}
+    protected virtual void EnterRule_T__13() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__13() {}
+    protected virtual void LeaveRule_T__13() { }
 
     // $ANTLR start "T__13"
     [GrammarRule("T__13")]
     private void mT__13()
     {
-    	EnterRule_T__13();
-    	EnterRule("T__13", 5);
-    	TraceIn("T__13", 5);
-    		try
-    		{
-    		int _type = T__13;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:11:7: ( 'COMP' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:11:9: 'COMP'
-    		{
-    		DebugLocation(11, 9);
-    		Match("COMP"); 
+        EnterRule_T__13();
+        EnterRule("T__13", 3);
+        TraceIn("T__13", 3);
+        try
+        {
+            int _type = T__13;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:9:7: ( '\\n' )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:9:9: '\\n'
+            {
+                DebugLocation(9, 9);
+                Match('\n');
 
+            }
 
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__13", 5);
-    		LeaveRule("T__13", 5);
-    		LeaveRule_T__13();
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("T__13", 3);
+            LeaveRule("T__13", 3);
+            LeaveRule_T__13();
         }
     }
     // $ANTLR end "T__13"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__14() {}
+    protected virtual void EnterRule_OPERACION() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__14() {}
+    protected virtual void LeaveRule_OPERACION() { }
 
-    // $ANTLR start "T__14"
-    [GrammarRule("T__14")]
-    private void mT__14()
+    // $ANTLR start "OPERACION"
+    [GrammarRule("OPERACION")]
+    private void mOPERACION()
     {
-    	EnterRule_T__14();
-    	EnterRule("T__14", 6);
-    	TraceIn("T__14", 6);
-    		try
-    		{
-    		int _type = T__14;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:12:7: ( 'DIV' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:12:9: 'DIV'
-    		{
-    		DebugLocation(12, 9);
-    		Match("DIV"); 
+        EnterRule_OPERACION();
+        EnterRule("OPERACION", 4);
+        TraceIn("OPERACION", 4);
+        try
+        {
+            int _type = OPERACION;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:2: ( 'ADD' | 'AND' | 'COMP' | 'DIV' | 'J' | 'JEQ' | 'JGT' | 'JLT' | 'JSUB' | 'LDA' | 'LDCG' | 'LDL' | 'LDX' | 'MUL' | 'OR' | 'RD' | 'RSUB' | 'STA' | 'STCH' | 'STL' | 'STSW' | 'STX' | 'SUB' | 'TD' | 'TIX' | 'WD' )
+            int alt1 = 26;
+            try
+            {
+                DebugEnterDecision(1, decisionCanBacktrack[1]);
+                switch (input.LA(1))
+                {
+                    case 'A':
+                        {
+                            int LA1_1 = input.LA(2);
+
+                            if ((LA1_1 == 'D'))
+                            {
+                                alt1 = 1;
+                            }
+                            else if ((LA1_1 == 'N'))
+                            {
+                                alt1 = 2;
+                            }
+                            else
+                            {
+                                NoViableAltException nvae = new NoViableAltException("", 1, 1, input);
+                                DebugRecognitionException(nvae);
+                                throw nvae;
+                            }
+                        }
+                        break;
+                    case 'C':
+                        {
+                            alt1 = 3;
+                        }
+                        break;
+                    case 'D':
+                        {
+                            alt1 = 4;
+                        }
+                        break;
+                    case 'J':
+                        {
+                            switch (input.LA(2))
+                            {
+                                case 'E':
+                                    {
+                                        alt1 = 6;
+                                    }
+                                    break;
+                                case 'G':
+                                    {
+                                        alt1 = 7;
+                                    }
+                                    break;
+                                case 'L':
+                                    {
+                                        alt1 = 8;
+                                    }
+                                    break;
+                                case 'S':
+                                    {
+                                        alt1 = 9;
+                                    }
+                                    break;
+                                default:
+                                    alt1 = 5;
+                                    break;
+
+                            }
+
+                        }
+                        break;
+                    case 'L':
+                        {
+                            int LA1_5 = input.LA(2);
+
+                            if ((LA1_5 == 'D'))
+                            {
+                                switch (input.LA(3))
+                                {
+                                    case 'A':
+                                        {
+                                            alt1 = 10;
+                                        }
+                                        break;
+                                    case 'C':
+                                        {
+                                            alt1 = 11;
+                                        }
+                                        break;
+                                    case 'L':
+                                        {
+                                            alt1 = 12;
+                                        }
+                                        break;
+                                    case 'X':
+                                        {
+                                            alt1 = 13;
+                                        }
+                                        break;
+                                    default:
+                                        {
+                                            NoViableAltException nvae = new NoViableAltException("", 1, 19, input);
+                                            DebugRecognitionException(nvae);
+                                            throw nvae;
+                                        }
+                                }
+
+                            }
+                            else
+                            {
+                                NoViableAltException nvae = new NoViableAltException("", 1, 5, input);
+                                DebugRecognitionException(nvae);
+                                throw nvae;
+                            }
+                        }
+                        break;
+                    case 'M':
+                        {
+                            alt1 = 14;
+                        }
+                        break;
+                    case 'O':
+                        {
+                            alt1 = 15;
+                        }
+                        break;
+                    case 'R':
+                        {
+                            int LA1_8 = input.LA(2);
+
+                            if ((LA1_8 == 'D'))
+                            {
+                                alt1 = 16;
+                            }
+                            else if ((LA1_8 == 'S'))
+                            {
+                                alt1 = 17;
+                            }
+                            else
+                            {
+                                NoViableAltException nvae = new NoViableAltException("", 1, 8, input);
+                                DebugRecognitionException(nvae);
+                                throw nvae;
+                            }
+                        }
+                        break;
+                    case 'S':
+                        {
+                            int LA1_9 = input.LA(2);
+
+                            if ((LA1_9 == 'T'))
+                            {
+                                switch (input.LA(3))
+                                {
+                                    case 'A':
+                                        {
+                                            alt1 = 18;
+                                        }
+                                        break;
+                                    case 'C':
+                                        {
+                                            alt1 = 19;
+                                        }
+                                        break;
+                                    case 'L':
+                                        {
+                                            alt1 = 20;
+                                        }
+                                        break;
+                                    case 'S':
+                                        {
+                                            alt1 = 21;
+                                        }
+                                        break;
+                                    case 'X':
+                                        {
+                                            alt1 = 22;
+                                        }
+                                        break;
+                                    default:
+                                        {
+                                            NoViableAltException nvae = new NoViableAltException("", 1, 22, input);
+                                            DebugRecognitionException(nvae);
+                                            throw nvae;
+                                        }
+                                }
+
+                            }
+                            else if ((LA1_9 == 'U'))
+                            {
+                                alt1 = 23;
+                            }
+                            else
+                            {
+                                NoViableAltException nvae = new NoViableAltException("", 1, 9, input);
+                                DebugRecognitionException(nvae);
+                                throw nvae;
+                            }
+                        }
+                        break;
+                    case 'T':
+                        {
+                            int LA1_10 = input.LA(2);
+
+                            if ((LA1_10 == 'D'))
+                            {
+                                alt1 = 24;
+                            }
+                            else if ((LA1_10 == 'I'))
+                            {
+                                alt1 = 25;
+                            }
+                            else
+                            {
+                                NoViableAltException nvae = new NoViableAltException("", 1, 10, input);
+                                DebugRecognitionException(nvae);
+                                throw nvae;
+                            }
+                        }
+                        break;
+                    case 'W':
+                        {
+                            alt1 = 26;
+                        }
+                        break;
+                    default:
+                        {
+                            NoViableAltException nvae = new NoViableAltException("", 1, 0, input);
+                            DebugRecognitionException(nvae);
+                            throw nvae;
+                        }
+                }
+
+            }
+            finally { DebugExitDecision(1); }
+            switch (alt1)
+            {
+                case 1:
+                    DebugEnterAlt(1);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:4: 'ADD'
+                    {
+                        DebugLocation(27, 4);
+                        Match("ADD");
 
 
-    		}
+                    }
+                    break;
+                case 2:
+                    DebugEnterAlt(2);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:12: 'AND'
+                    {
+                        DebugLocation(27, 12);
+                        Match("AND");
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__14", 6);
-    		LeaveRule("T__14", 6);
-    		LeaveRule_T__14();
+
+                    }
+                    break;
+                case 3:
+                    DebugEnterAlt(3);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:20: 'COMP'
+                    {
+                        DebugLocation(27, 20);
+                        Match("COMP");
+
+
+                    }
+                    break;
+                case 4:
+                    DebugEnterAlt(4);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:29: 'DIV'
+                    {
+                        DebugLocation(27, 29);
+                        Match("DIV");
+
+
+                    }
+                    break;
+                case 5:
+                    DebugEnterAlt(5);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:37: 'J'
+                    {
+                        DebugLocation(27, 37);
+                        Match('J');
+
+                    }
+                    break;
+                case 6:
+                    DebugEnterAlt(6);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:43: 'JEQ'
+                    {
+                        DebugLocation(27, 43);
+                        Match("JEQ");
+
+
+                    }
+                    break;
+                case 7:
+                    DebugEnterAlt(7);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:51: 'JGT'
+                    {
+                        DebugLocation(27, 51);
+                        Match("JGT");
+
+
+                    }
+                    break;
+                case 8:
+                    DebugEnterAlt(8);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:59: 'JLT'
+                    {
+                        DebugLocation(27, 59);
+                        Match("JLT");
+
+
+                    }
+                    break;
+                case 9:
+                    DebugEnterAlt(9);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:67: 'JSUB'
+                    {
+                        DebugLocation(27, 67);
+                        Match("JSUB");
+
+
+                    }
+                    break;
+                case 10:
+                    DebugEnterAlt(10);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:76: 'LDA'
+                    {
+                        DebugLocation(27, 76);
+                        Match("LDA");
+
+
+                    }
+                    break;
+                case 11:
+                    DebugEnterAlt(11);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:84: 'LDCG'
+                    {
+                        DebugLocation(27, 84);
+                        Match("LDCG");
+
+
+                    }
+                    break;
+                case 12:
+                    DebugEnterAlt(12);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:93: 'LDL'
+                    {
+                        DebugLocation(27, 93);
+                        Match("LDL");
+
+
+                    }
+                    break;
+                case 13:
+                    DebugEnterAlt(13);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:101: 'LDX'
+                    {
+                        DebugLocation(27, 101);
+                        Match("LDX");
+
+
+                    }
+                    break;
+                case 14:
+                    DebugEnterAlt(14);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:109: 'MUL'
+                    {
+                        DebugLocation(27, 109);
+                        Match("MUL");
+
+
+                    }
+                    break;
+                case 15:
+                    DebugEnterAlt(15);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:117: 'OR'
+                    {
+                        DebugLocation(27, 117);
+                        Match("OR");
+
+
+                    }
+                    break;
+                case 16:
+                    DebugEnterAlt(16);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:124: 'RD'
+                    {
+                        DebugLocation(27, 124);
+                        Match("RD");
+
+
+                    }
+                    break;
+                case 17:
+                    DebugEnterAlt(17);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:131: 'RSUB'
+                    {
+                        DebugLocation(27, 131);
+                        Match("RSUB");
+
+
+                    }
+                    break;
+                case 18:
+                    DebugEnterAlt(18);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:140: 'STA'
+                    {
+                        DebugLocation(27, 140);
+                        Match("STA");
+
+
+                    }
+                    break;
+                case 19:
+                    DebugEnterAlt(19);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:148: 'STCH'
+                    {
+                        DebugLocation(27, 148);
+                        Match("STCH");
+
+
+                    }
+                    break;
+                case 20:
+                    DebugEnterAlt(20);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:157: 'STL'
+                    {
+                        DebugLocation(27, 157);
+                        Match("STL");
+
+
+                    }
+                    break;
+                case 21:
+                    DebugEnterAlt(21);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:165: 'STSW'
+                    {
+                        DebugLocation(27, 165);
+                        Match("STSW");
+
+
+                    }
+                    break;
+                case 22:
+                    DebugEnterAlt(22);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:174: 'STX'
+                    {
+                        DebugLocation(27, 174);
+                        Match("STX");
+
+
+                    }
+                    break;
+                case 23:
+                    DebugEnterAlt(23);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:182: 'SUB'
+                    {
+                        DebugLocation(27, 182);
+                        Match("SUB");
+
+
+                    }
+                    break;
+                case 24:
+                    DebugEnterAlt(24);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:190: 'TD'
+                    {
+                        DebugLocation(27, 190);
+                        Match("TD");
+
+
+                    }
+                    break;
+                case 25:
+                    DebugEnterAlt(25);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:197: 'TIX'
+                    {
+                        DebugLocation(27, 197);
+                        Match("TIX");
+
+
+                    }
+                    break;
+                case 26:
+                    DebugEnterAlt(26);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:205: 'WD'
+                    {
+                        DebugLocation(27, 205);
+                        Match("WD");
+
+
+                    }
+                    break;
+
+            }
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("OPERACION", 4);
+            LeaveRule("OPERACION", 4);
+            LeaveRule_OPERACION();
         }
     }
-    // $ANTLR end "T__14"
+    // $ANTLR end "OPERACION"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__15() {}
+    protected virtual void EnterRule_TIPODIRECTIVA() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__15() {}
+    protected virtual void LeaveRule_TIPODIRECTIVA() { }
 
-    // $ANTLR start "T__15"
-    [GrammarRule("T__15")]
-    private void mT__15()
+    // $ANTLR start "TIPODIRECTIVA"
+    [GrammarRule("TIPODIRECTIVA")]
+    private void mTIPODIRECTIVA()
     {
-    	EnterRule_T__15();
-    	EnterRule("T__15", 7);
-    	TraceIn("T__15", 7);
-    		try
-    		{
-    		int _type = T__15;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:13:7: ( 'END' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:13:9: 'END'
-    		{
-    		DebugLocation(13, 9);
-    		Match("END"); 
+        EnterRule_TIPODIRECTIVA();
+        EnterRule("TIPODIRECTIVA", 5);
+        TraceIn("TIPODIRECTIVA", 5);
+        try
+        {
+            int _type = TIPODIRECTIVA;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:2: ( 'BYTE' | 'WORD' | 'RESB' | 'RESW' )
+            int alt2 = 4;
+            try
+            {
+                DebugEnterDecision(2, decisionCanBacktrack[2]);
+                switch (input.LA(1))
+                {
+                    case 'B':
+                        {
+                            alt2 = 1;
+                        }
+                        break;
+                    case 'W':
+                        {
+                            alt2 = 2;
+                        }
+                        break;
+                    case 'R':
+                        {
+                            int LA2_3 = input.LA(2);
+
+                            if ((LA2_3 == 'E'))
+                            {
+                                int LA2_4 = input.LA(3);
+
+                                if ((LA2_4 == 'S'))
+                                {
+                                    int LA2_5 = input.LA(4);
+
+                                    if ((LA2_5 == 'B'))
+                                    {
+                                        alt2 = 3;
+                                    }
+                                    else if ((LA2_5 == 'W'))
+                                    {
+                                        alt2 = 4;
+                                    }
+                                    else
+                                    {
+                                        NoViableAltException nvae = new NoViableAltException("", 2, 5, input);
+                                        DebugRecognitionException(nvae);
+                                        throw nvae;
+                                    }
+                                }
+                                else
+                                {
+                                    NoViableAltException nvae = new NoViableAltException("", 2, 4, input);
+                                    DebugRecognitionException(nvae);
+                                    throw nvae;
+                                }
+                            }
+                            else
+                            {
+                                NoViableAltException nvae = new NoViableAltException("", 2, 3, input);
+                                DebugRecognitionException(nvae);
+                                throw nvae;
+                            }
+                        }
+                        break;
+                    default:
+                        {
+                            NoViableAltException nvae = new NoViableAltException("", 2, 0, input);
+                            DebugRecognitionException(nvae);
+                            throw nvae;
+                        }
+                }
+
+            }
+            finally { DebugExitDecision(2); }
+            switch (alt2)
+            {
+                case 1:
+                    DebugEnterAlt(1);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:4: 'BYTE'
+                    {
+                        DebugLocation(30, 4);
+                        Match("BYTE");
 
 
-    		}
+                    }
+                    break;
+                case 2:
+                    DebugEnterAlt(2);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:13: 'WORD'
+                    {
+                        DebugLocation(30, 13);
+                        Match("WORD");
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__15", 7);
-    		LeaveRule("T__15", 7);
-    		LeaveRule_T__15();
+
+                    }
+                    break;
+                case 3:
+                    DebugEnterAlt(3);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:22: 'RESB'
+                    {
+                        DebugLocation(30, 22);
+                        Match("RESB");
+
+
+                    }
+                    break;
+                case 4:
+                    DebugEnterAlt(4);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:31: 'RESW'
+                    {
+                        DebugLocation(30, 31);
+                        Match("RESW");
+
+
+                    }
+                    break;
+
+            }
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("TIPODIRECTIVA", 5);
+            LeaveRule("TIPODIRECTIVA", 5);
+            LeaveRule_TIPODIRECTIVA();
         }
     }
-    // $ANTLR end "T__15"
+    // $ANTLR end "TIPODIRECTIVA"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__16() {}
+    protected virtual void EnterRule_OPERACIONDIRECTIVA() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__16() {}
+    protected virtual void LeaveRule_OPERACIONDIRECTIVA() { }
 
-    // $ANTLR start "T__16"
-    [GrammarRule("T__16")]
-    private void mT__16()
+    // $ANTLR start "OPERACIONDIRECTIVA"
+    [GrammarRule("OPERACIONDIRECTIVA")]
+    private void mOPERACIONDIRECTIVA()
     {
-    	EnterRule_T__16();
-    	EnterRule("T__16", 8);
-    	TraceIn("T__16", 8);
-    		try
-    		{
-    		int _type = T__16;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:14:7: ( 'J' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:14:9: 'J'
-    		{
-    		DebugLocation(14, 9);
-    		Match('J'); 
+        EnterRule_OPERACIONDIRECTIVA();
+        EnterRule("OPERACIONDIRECTIVA", 6);
+        TraceIn("OPERACIONDIRECTIVA", 6);
+        try
+        {
+            int _type = OPERACIONDIRECTIVA;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:34:2: ( 'C' '\\'' NOMBRE '\\'' | 'X' '\\'' INT '\\'' )
+            int alt3 = 2;
+            try
+            {
+                DebugEnterDecision(3, decisionCanBacktrack[3]);
+                int LA3_0 = input.LA(1);
 
-    		}
+                if ((LA3_0 == 'C'))
+                {
+                    alt3 = 1;
+                }
+                else if ((LA3_0 == 'X'))
+                {
+                    alt3 = 2;
+                }
+                else
+                {
+                    NoViableAltException nvae = new NoViableAltException("", 3, 0, input);
+                    DebugRecognitionException(nvae);
+                    throw nvae;
+                }
+            }
+            finally { DebugExitDecision(3); }
+            switch (alt3)
+            {
+                case 1:
+                    DebugEnterAlt(1);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:34:4: 'C' '\\'' NOMBRE '\\''
+                    {
+                        DebugLocation(34, 4);
+                        Match('C');
+                        DebugLocation(34, 7);
+                        Match('\'');
+                        DebugLocation(34, 11);
+                        mNOMBRE();
+                        DebugLocation(34, 17);
+                        Match('\'');
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__16", 8);
-    		LeaveRule("T__16", 8);
-    		LeaveRule_T__16();
+                    }
+                    break;
+                case 2:
+                    DebugEnterAlt(2);
+                    // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:34:24: 'X' '\\'' INT '\\''
+                    {
+                        DebugLocation(34, 24);
+                        Match('X');
+                        DebugLocation(34, 27);
+                        Match('\'');
+                        DebugLocation(34, 31);
+                        mINT();
+                        DebugLocation(34, 34);
+                        Match('\'');
+
+                    }
+                    break;
+
+            }
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("OPERACIONDIRECTIVA", 6);
+            LeaveRule("OPERACIONDIRECTIVA", 6);
+            LeaveRule_OPERACIONDIRECTIVA();
         }
     }
-    // $ANTLR end "T__16"
+    // $ANTLR end "OPERACIONDIRECTIVA"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__17() {}
+    protected virtual void EnterRule_START() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__17() {}
+    protected virtual void LeaveRule_START() { }
 
-    // $ANTLR start "T__17"
-    [GrammarRule("T__17")]
-    private void mT__17()
+    // $ANTLR start "START"
+    [GrammarRule("START")]
+    private void mSTART()
     {
-    	EnterRule_T__17();
-    	EnterRule("T__17", 9);
-    	TraceIn("T__17", 9);
-    		try
-    		{
-    		int _type = T__17;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:15:7: ( 'JEQ' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:15:9: 'JEQ'
-    		{
-    		DebugLocation(15, 9);
-    		Match("JEQ"); 
+        EnterRule_START();
+        EnterRule("START", 7);
+        TraceIn("START", 7);
+        try
+        {
+            int _type = START;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:36:7: ( 'START' )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:36:9: 'START'
+            {
+                DebugLocation(36, 9);
+                Match("START");
 
 
-    		}
+            }
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__17", 9);
-    		LeaveRule("T__17", 9);
-    		LeaveRule_T__17();
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("START", 7);
+            LeaveRule("START", 7);
+            LeaveRule_START();
         }
     }
-    // $ANTLR end "T__17"
+    // $ANTLR end "START"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__18() {}
+    protected virtual void EnterRule_INT() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__18() {}
+    protected virtual void LeaveRule_INT() { }
 
-    // $ANTLR start "T__18"
-    [GrammarRule("T__18")]
-    private void mT__18()
+    // $ANTLR start "INT"
+    [GrammarRule("INT")]
+    private void mINT()
     {
-    	EnterRule_T__18();
-    	EnterRule("T__18", 10);
-    	TraceIn("T__18", 10);
-    		try
-    		{
-    		int _type = T__18;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:16:7: ( 'JGT' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:16:9: 'JGT'
-    		{
-    		DebugLocation(16, 9);
-    		Match("JGT"); 
+        EnterRule_INT();
+        EnterRule("INT", 8);
+        TraceIn("INT", 8);
+        try
+        {
+            int _type = INT;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:37:5: ( ( 'A' .. 'F' | '0' .. '9' | 'a' .. 'f' )+ )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:37:8: ( 'A' .. 'F' | '0' .. '9' | 'a' .. 'f' )+
+            {
+                DebugLocation(37, 8);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:37:8: ( 'A' .. 'F' | '0' .. '9' | 'a' .. 'f' )+
+                int cnt4 = 0;
+                try
+                {
+                    DebugEnterSubRule(4);
+                    while (true)
+                    {
+                        int alt4 = 2;
+                        try
+                        {
+                            DebugEnterDecision(4, decisionCanBacktrack[4]);
+                            int LA4_0 = input.LA(1);
+
+                            if (((LA4_0 >= '0' && LA4_0 <= '9') || (LA4_0 >= 'A' && LA4_0 <= 'F') || (LA4_0 >= 'a' && LA4_0 <= 'f')))
+                            {
+                                alt4 = 1;
+                            }
 
 
-    		}
+                        }
+                        finally { DebugExitDecision(4); }
+                        switch (alt4)
+                        {
+                            case 1:
+                                DebugEnterAlt(1);
+                                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:
+                                {
+                                    DebugLocation(37, 8);
+                                    input.Consume();
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__18", 10);
-    		LeaveRule("T__18", 10);
-    		LeaveRule_T__18();
+
+                                }
+                                break;
+
+                            default:
+                                if (cnt4 >= 1)
+                                    goto loop4;
+
+                                EarlyExitException eee4 = new EarlyExitException(4, input);
+                                DebugRecognitionException(eee4);
+                                throw eee4;
+                        }
+                        cnt4++;
+                    }
+                loop4:
+                    ;
+
+                }
+                finally { DebugExitSubRule(4); }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("INT", 8);
+            LeaveRule("INT", 8);
+            LeaveRule_INT();
         }
     }
-    // $ANTLR end "T__18"
+    // $ANTLR end "INT"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__19() {}
+    protected virtual void EnterRule_NOMBRE() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__19() {}
+    protected virtual void LeaveRule_NOMBRE() { }
 
-    // $ANTLR start "T__19"
-    [GrammarRule("T__19")]
-    private void mT__19()
+    // $ANTLR start "NOMBRE"
+    [GrammarRule("NOMBRE")]
+    private void mNOMBRE()
     {
-    	EnterRule_T__19();
-    	EnterRule("T__19", 11);
-    	TraceIn("T__19", 11);
-    		try
-    		{
-    		int _type = T__19;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:17:7: ( 'JLT' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:17:9: 'JLT'
-    		{
-    		DebugLocation(17, 9);
-    		Match("JLT"); 
+        EnterRule_NOMBRE();
+        EnterRule("NOMBRE", 9);
+        TraceIn("NOMBRE", 9);
+        try
+        {
+            int _type = NOMBRE;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:38:8: ( ( 'A' .. 'Z' | 'a' .. 'z' | '_' )+ )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:38:10: ( 'A' .. 'Z' | 'a' .. 'z' | '_' )+
+            {
+                DebugLocation(38, 10);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:38:10: ( 'A' .. 'Z' | 'a' .. 'z' | '_' )+
+                int cnt5 = 0;
+                try
+                {
+                    DebugEnterSubRule(5);
+                    while (true)
+                    {
+                        int alt5 = 2;
+                        try
+                        {
+                            DebugEnterDecision(5, decisionCanBacktrack[5]);
+                            int LA5_0 = input.LA(1);
+
+                            if (((LA5_0 >= 'A' && LA5_0 <= 'Z') || LA5_0 == '_' || (LA5_0 >= 'a' && LA5_0 <= 'z')))
+                            {
+                                alt5 = 1;
+                            }
 
 
-    		}
+                        }
+                        finally { DebugExitDecision(5); }
+                        switch (alt5)
+                        {
+                            case 1:
+                                DebugEnterAlt(1);
+                                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:
+                                {
+                                    DebugLocation(38, 10);
+                                    input.Consume();
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__19", 11);
-    		LeaveRule("T__19", 11);
-    		LeaveRule_T__19();
+
+                                }
+                                break;
+
+                            default:
+                                if (cnt5 >= 1)
+                                    goto loop5;
+
+                                EarlyExitException eee5 = new EarlyExitException(5, input);
+                                DebugRecognitionException(eee5);
+                                throw eee5;
+                        }
+                        cnt5++;
+                    }
+                loop5:
+                    ;
+
+                }
+                finally { DebugExitSubRule(5); }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("NOMBRE", 9);
+            LeaveRule("NOMBRE", 9);
+            LeaveRule_NOMBRE();
         }
     }
-    // $ANTLR end "T__19"
+    // $ANTLR end "NOMBRE"
 
     [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__20() {}
+    protected virtual void EnterRule_DIR() { }
     [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__20() {}
+    protected virtual void LeaveRule_DIR() { }
 
-    // $ANTLR start "T__20"
-    [GrammarRule("T__20")]
-    private void mT__20()
+    // $ANTLR start "DIR"
+    [GrammarRule("DIR")]
+    private void mDIR()
     {
-    	EnterRule_T__20();
-    	EnterRule("T__20", 12);
-    	TraceIn("T__20", 12);
-    		try
-    		{
-    		int _type = T__20;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:18:7: ( 'JSUB' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:18:9: 'JSUB'
-    		{
-    		DebugLocation(18, 9);
-    		Match("JSUB"); 
+        EnterRule_DIR();
+        EnterRule("DIR", 10);
+        TraceIn("DIR", 10);
+        try
+        {
+            int _type = DIR;
+            int _channel = DefaultTokenChannel;
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:39:5: ( INT ( 'H' )? )
+            DebugEnterAlt(1);
+            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:39:7: INT ( 'H' )?
+            {
+                DebugLocation(39, 7);
+                mINT();
+                DebugLocation(39, 10);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:39:10: ( 'H' )?
+                int alt6 = 2;
+                try
+                {
+                    DebugEnterSubRule(6);
+                    try
+                    {
+                        DebugEnterDecision(6, decisionCanBacktrack[6]);
+                        int LA6_0 = input.LA(1);
+
+                        if ((LA6_0 == 'H'))
+                        {
+                            alt6 = 1;
+                        }
+                    }
+                    finally { DebugExitDecision(6); }
+                    switch (alt6)
+                    {
+                        case 1:
+                            DebugEnterAlt(1);
+                            // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:39:10: 'H'
+                            {
+                                DebugLocation(39, 10);
+                                Match('H');
+
+                            }
+                            break;
+
+                    }
+                }
+                finally { DebugExitSubRule(6); }
 
 
-    		}
+            }
 
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__20", 12);
-    		LeaveRule("T__20", 12);
-    		LeaveRule_T__20();
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally
+        {
+            TraceOut("DIR", 10);
+            LeaveRule("DIR", 10);
+            LeaveRule_DIR();
         }
     }
-    // $ANTLR end "T__20"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__21() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__21() {}
-
-    // $ANTLR start "T__21"
-    [GrammarRule("T__21")]
-    private void mT__21()
-    {
-    	EnterRule_T__21();
-    	EnterRule("T__21", 13);
-    	TraceIn("T__21", 13);
-    		try
-    		{
-    		int _type = T__21;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:19:7: ( 'LDA' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:19:9: 'LDA'
-    		{
-    		DebugLocation(19, 9);
-    		Match("LDA"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__21", 13);
-    		LeaveRule("T__21", 13);
-    		LeaveRule_T__21();
-        }
-    }
-    // $ANTLR end "T__21"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__22() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__22() {}
-
-    // $ANTLR start "T__22"
-    [GrammarRule("T__22")]
-    private void mT__22()
-    {
-    	EnterRule_T__22();
-    	EnterRule("T__22", 14);
-    	TraceIn("T__22", 14);
-    		try
-    		{
-    		int _type = T__22;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:20:7: ( 'LDCG' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:20:9: 'LDCG'
-    		{
-    		DebugLocation(20, 9);
-    		Match("LDCG"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__22", 14);
-    		LeaveRule("T__22", 14);
-    		LeaveRule_T__22();
-        }
-    }
-    // $ANTLR end "T__22"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__23() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__23() {}
-
-    // $ANTLR start "T__23"
-    [GrammarRule("T__23")]
-    private void mT__23()
-    {
-    	EnterRule_T__23();
-    	EnterRule("T__23", 15);
-    	TraceIn("T__23", 15);
-    		try
-    		{
-    		int _type = T__23;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:21:7: ( 'LDL' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:21:9: 'LDL'
-    		{
-    		DebugLocation(21, 9);
-    		Match("LDL"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__23", 15);
-    		LeaveRule("T__23", 15);
-    		LeaveRule_T__23();
-        }
-    }
-    // $ANTLR end "T__23"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__24() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__24() {}
-
-    // $ANTLR start "T__24"
-    [GrammarRule("T__24")]
-    private void mT__24()
-    {
-    	EnterRule_T__24();
-    	EnterRule("T__24", 16);
-    	TraceIn("T__24", 16);
-    		try
-    		{
-    		int _type = T__24;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:22:7: ( 'LDX' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:22:9: 'LDX'
-    		{
-    		DebugLocation(22, 9);
-    		Match("LDX"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__24", 16);
-    		LeaveRule("T__24", 16);
-    		LeaveRule_T__24();
-        }
-    }
-    // $ANTLR end "T__24"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__25() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__25() {}
-
-    // $ANTLR start "T__25"
-    [GrammarRule("T__25")]
-    private void mT__25()
-    {
-    	EnterRule_T__25();
-    	EnterRule("T__25", 17);
-    	TraceIn("T__25", 17);
-    		try
-    		{
-    		int _type = T__25;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:23:7: ( 'MUL' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:23:9: 'MUL'
-    		{
-    		DebugLocation(23, 9);
-    		Match("MUL"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__25", 17);
-    		LeaveRule("T__25", 17);
-    		LeaveRule_T__25();
-        }
-    }
-    // $ANTLR end "T__25"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__26() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__26() {}
-
-    // $ANTLR start "T__26"
-    [GrammarRule("T__26")]
-    private void mT__26()
-    {
-    	EnterRule_T__26();
-    	EnterRule("T__26", 18);
-    	TraceIn("T__26", 18);
-    		try
-    		{
-    		int _type = T__26;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:24:7: ( 'OR' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:24:9: 'OR'
-    		{
-    		DebugLocation(24, 9);
-    		Match("OR"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__26", 18);
-    		LeaveRule("T__26", 18);
-    		LeaveRule_T__26();
-        }
-    }
-    // $ANTLR end "T__26"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__27() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__27() {}
-
-    // $ANTLR start "T__27"
-    [GrammarRule("T__27")]
-    private void mT__27()
-    {
-    	EnterRule_T__27();
-    	EnterRule("T__27", 19);
-    	TraceIn("T__27", 19);
-    		try
-    		{
-    		int _type = T__27;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:25:7: ( 'RD' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:25:9: 'RD'
-    		{
-    		DebugLocation(25, 9);
-    		Match("RD"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__27", 19);
-    		LeaveRule("T__27", 19);
-    		LeaveRule_T__27();
-        }
-    }
-    // $ANTLR end "T__27"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__28() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__28() {}
-
-    // $ANTLR start "T__28"
-    [GrammarRule("T__28")]
-    private void mT__28()
-    {
-    	EnterRule_T__28();
-    	EnterRule("T__28", 20);
-    	TraceIn("T__28", 20);
-    		try
-    		{
-    		int _type = T__28;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:26:7: ( 'RESB' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:26:9: 'RESB'
-    		{
-    		DebugLocation(26, 9);
-    		Match("RESB"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__28", 20);
-    		LeaveRule("T__28", 20);
-    		LeaveRule_T__28();
-        }
-    }
-    // $ANTLR end "T__28"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__29() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__29() {}
-
-    // $ANTLR start "T__29"
-    [GrammarRule("T__29")]
-    private void mT__29()
-    {
-    	EnterRule_T__29();
-    	EnterRule("T__29", 21);
-    	TraceIn("T__29", 21);
-    		try
-    		{
-    		int _type = T__29;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:7: ( 'RESW' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:27:9: 'RESW'
-    		{
-    		DebugLocation(27, 9);
-    		Match("RESW"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__29", 21);
-    		LeaveRule("T__29", 21);
-    		LeaveRule_T__29();
-        }
-    }
-    // $ANTLR end "T__29"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__30() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__30() {}
-
-    // $ANTLR start "T__30"
-    [GrammarRule("T__30")]
-    private void mT__30()
-    {
-    	EnterRule_T__30();
-    	EnterRule("T__30", 22);
-    	TraceIn("T__30", 22);
-    		try
-    		{
-    		int _type = T__30;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:28:7: ( 'RSUB' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:28:9: 'RSUB'
-    		{
-    		DebugLocation(28, 9);
-    		Match("RSUB"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__30", 22);
-    		LeaveRule("T__30", 22);
-    		LeaveRule_T__30();
-        }
-    }
-    // $ANTLR end "T__30"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__31() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__31() {}
-
-    // $ANTLR start "T__31"
-    [GrammarRule("T__31")]
-    private void mT__31()
-    {
-    	EnterRule_T__31();
-    	EnterRule("T__31", 23);
-    	TraceIn("T__31", 23);
-    		try
-    		{
-    		int _type = T__31;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:29:7: ( 'STA' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:29:9: 'STA'
-    		{
-    		DebugLocation(29, 9);
-    		Match("STA"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__31", 23);
-    		LeaveRule("T__31", 23);
-    		LeaveRule_T__31();
-        }
-    }
-    // $ANTLR end "T__31"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__32() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__32() {}
-
-    // $ANTLR start "T__32"
-    [GrammarRule("T__32")]
-    private void mT__32()
-    {
-    	EnterRule_T__32();
-    	EnterRule("T__32", 24);
-    	TraceIn("T__32", 24);
-    		try
-    		{
-    		int _type = T__32;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:7: ( 'START' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:30:9: 'START'
-    		{
-    		DebugLocation(30, 9);
-    		Match("START"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__32", 24);
-    		LeaveRule("T__32", 24);
-    		LeaveRule_T__32();
-        }
-    }
-    // $ANTLR end "T__32"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__33() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__33() {}
-
-    // $ANTLR start "T__33"
-    [GrammarRule("T__33")]
-    private void mT__33()
-    {
-    	EnterRule_T__33();
-    	EnterRule("T__33", 25);
-    	TraceIn("T__33", 25);
-    		try
-    		{
-    		int _type = T__33;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:31:7: ( 'STCH' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:31:9: 'STCH'
-    		{
-    		DebugLocation(31, 9);
-    		Match("STCH"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__33", 25);
-    		LeaveRule("T__33", 25);
-    		LeaveRule_T__33();
-        }
-    }
-    // $ANTLR end "T__33"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__34() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__34() {}
-
-    // $ANTLR start "T__34"
-    [GrammarRule("T__34")]
-    private void mT__34()
-    {
-    	EnterRule_T__34();
-    	EnterRule("T__34", 26);
-    	TraceIn("T__34", 26);
-    		try
-    		{
-    		int _type = T__34;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:32:7: ( 'STL' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:32:9: 'STL'
-    		{
-    		DebugLocation(32, 9);
-    		Match("STL"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__34", 26);
-    		LeaveRule("T__34", 26);
-    		LeaveRule_T__34();
-        }
-    }
-    // $ANTLR end "T__34"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__35() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__35() {}
-
-    // $ANTLR start "T__35"
-    [GrammarRule("T__35")]
-    private void mT__35()
-    {
-    	EnterRule_T__35();
-    	EnterRule("T__35", 27);
-    	TraceIn("T__35", 27);
-    		try
-    		{
-    		int _type = T__35;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:33:7: ( 'STSW' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:33:9: 'STSW'
-    		{
-    		DebugLocation(33, 9);
-    		Match("STSW"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__35", 27);
-    		LeaveRule("T__35", 27);
-    		LeaveRule_T__35();
-        }
-    }
-    // $ANTLR end "T__35"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__36() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__36() {}
-
-    // $ANTLR start "T__36"
-    [GrammarRule("T__36")]
-    private void mT__36()
-    {
-    	EnterRule_T__36();
-    	EnterRule("T__36", 28);
-    	TraceIn("T__36", 28);
-    		try
-    		{
-    		int _type = T__36;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:34:7: ( 'STX' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:34:9: 'STX'
-    		{
-    		DebugLocation(34, 9);
-    		Match("STX"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__36", 28);
-    		LeaveRule("T__36", 28);
-    		LeaveRule_T__36();
-        }
-    }
-    // $ANTLR end "T__36"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__37() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__37() {}
-
-    // $ANTLR start "T__37"
-    [GrammarRule("T__37")]
-    private void mT__37()
-    {
-    	EnterRule_T__37();
-    	EnterRule("T__37", 29);
-    	TraceIn("T__37", 29);
-    		try
-    		{
-    		int _type = T__37;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:35:7: ( 'SUB' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:35:9: 'SUB'
-    		{
-    		DebugLocation(35, 9);
-    		Match("SUB"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__37", 29);
-    		LeaveRule("T__37", 29);
-    		LeaveRule_T__37();
-        }
-    }
-    // $ANTLR end "T__37"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__38() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__38() {}
-
-    // $ANTLR start "T__38"
-    [GrammarRule("T__38")]
-    private void mT__38()
-    {
-    	EnterRule_T__38();
-    	EnterRule("T__38", 30);
-    	TraceIn("T__38", 30);
-    		try
-    		{
-    		int _type = T__38;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:36:7: ( 'TD' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:36:9: 'TD'
-    		{
-    		DebugLocation(36, 9);
-    		Match("TD"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__38", 30);
-    		LeaveRule("T__38", 30);
-    		LeaveRule_T__38();
-        }
-    }
-    // $ANTLR end "T__38"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__39() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__39() {}
-
-    // $ANTLR start "T__39"
-    [GrammarRule("T__39")]
-    private void mT__39()
-    {
-    	EnterRule_T__39();
-    	EnterRule("T__39", 31);
-    	TraceIn("T__39", 31);
-    		try
-    		{
-    		int _type = T__39;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:37:7: ( 'TIX' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:37:9: 'TIX'
-    		{
-    		DebugLocation(37, 9);
-    		Match("TIX"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__39", 31);
-    		LeaveRule("T__39", 31);
-    		LeaveRule_T__39();
-        }
-    }
-    // $ANTLR end "T__39"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__40() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__40() {}
-
-    // $ANTLR start "T__40"
-    [GrammarRule("T__40")]
-    private void mT__40()
-    {
-    	EnterRule_T__40();
-    	EnterRule("T__40", 32);
-    	TraceIn("T__40", 32);
-    		try
-    		{
-    		int _type = T__40;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:38:7: ( 'WD' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:38:9: 'WD'
-    		{
-    		DebugLocation(38, 9);
-    		Match("WD"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__40", 32);
-    		LeaveRule("T__40", 32);
-    		LeaveRule_T__40();
-        }
-    }
-    // $ANTLR end "T__40"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__41() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__41() {}
-
-    // $ANTLR start "T__41"
-    [GrammarRule("T__41")]
-    private void mT__41()
-    {
-    	EnterRule_T__41();
-    	EnterRule("T__41", 33);
-    	TraceIn("T__41", 33);
-    		try
-    		{
-    		int _type = T__41;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:39:7: ( 'WORD' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:39:9: 'WORD'
-    		{
-    		DebugLocation(39, 9);
-    		Match("WORD"); 
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__41", 33);
-    		LeaveRule("T__41", 33);
-    		LeaveRule_T__41();
-        }
-    }
-    // $ANTLR end "T__41"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_T__42() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_T__42() {}
-
-    // $ANTLR start "T__42"
-    [GrammarRule("T__42")]
-    private void mT__42()
-    {
-    	EnterRule_T__42();
-    	EnterRule("T__42", 34);
-    	TraceIn("T__42", 34);
-    		try
-    		{
-    		int _type = T__42;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:40:7: ( 'X' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:40:9: 'X'
-    		{
-    		DebugLocation(40, 9);
-    		Match('X'); 
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("T__42", 34);
-    		LeaveRule("T__42", 34);
-    		LeaveRule_T__42();
-        }
-    }
-    // $ANTLR end "T__42"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_SIMBOLO() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_SIMBOLO() {}
-
-    // $ANTLR start "SIMBOLO"
-    [GrammarRule("SIMBOLO")]
-    private void mSIMBOLO()
-    {
-    	EnterRule_SIMBOLO();
-    	EnterRule("SIMBOLO", 35);
-    	TraceIn("SIMBOLO", 35);
-    		try
-    		{
-    		int _type = SIMBOLO;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:40:9: ( ( 'a' | 'b' )* )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:40:11: ( 'a' | 'b' )*
-    		{
-    		DebugLocation(40, 11);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:40:11: ( 'a' | 'b' )*
-    		try { DebugEnterSubRule(1);
-    		while (true)
-    		{
-    			int alt1=2;
-    			try { DebugEnterDecision(1, decisionCanBacktrack[1]);
-    			int LA1_0 = input.LA(1);
-
-    			if (((LA1_0>='a' && LA1_0<='b')))
-    			{
-    				alt1 = 1;
-    			}
-
-
-    			} finally { DebugExitDecision(1); }
-    			switch ( alt1 )
-    			{
-    			case 1:
-    				DebugEnterAlt(1);
-    				// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:
-    				{
-    				DebugLocation(40, 11);
-    				input.Consume();
-
-
-    				}
-    				break;
-
-    			default:
-    				goto loop1;
-    			}
-    		}
-
-    		loop1:
-    			;
-
-    		} finally { DebugExitSubRule(1); }
-
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("SIMBOLO", 35);
-    		LeaveRule("SIMBOLO", 35);
-    		LeaveRule_SIMBOLO();
-        }
-    }
-    // $ANTLR end "SIMBOLO"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_NUM() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_NUM() {}
-
-    // $ANTLR start "NUM"
-    [GrammarRule("NUM")]
-    private void mNUM()
-    {
-    	EnterRule_NUM();
-    	EnterRule("NUM", 36);
-    	TraceIn("NUM", 36);
-    		try
-    		{
-    		int _type = NUM;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:42:5: ( ( '0' .. '9' )* | ( 'a' .. 'f' | 'A' .. 'F' | '0' .. '9' )* )
-    		int alt4=2;
-    		try { DebugEnterDecision(4, decisionCanBacktrack[4]);
-    		switch (input.LA(1))
-    		{
-    		case '0':
-    		case '1':
-    		case '2':
-    		case '3':
-    		case '4':
-    		case '5':
-    		case '6':
-    		case '7':
-    		case '8':
-    		case '9':
-    			{
-    			alt4 = 1;
-    			}
-    			break;
-    		case 'A':
-    		case 'B':
-    		case 'C':
-    		case 'D':
-    		case 'E':
-    		case 'F':
-    		case 'a':
-    		case 'b':
-    		case 'c':
-    		case 'd':
-    		case 'e':
-    		case 'f':
-    			{
-    			alt4 = 2;
-    			}
-    			break;
-    		default:
-    			alt4=1;
-    			break;
-
-    		}
-
-    		} finally { DebugExitDecision(4); }
-    		switch (alt4)
-    		{
-    		case 1:
-    			DebugEnterAlt(1);
-    			// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:42:8: ( '0' .. '9' )*
-    			{
-    			DebugLocation(42, 8);
-    			// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:42:8: ( '0' .. '9' )*
-    			try { DebugEnterSubRule(2);
-    			while (true)
-    			{
-    				int alt2=2;
-    				try { DebugEnterDecision(2, decisionCanBacktrack[2]);
-    				int LA2_0 = input.LA(1);
-
-    				if (((LA2_0>='0' && LA2_0<='9')))
-    				{
-    					alt2 = 1;
-    				}
-
-
-    				} finally { DebugExitDecision(2); }
-    				switch ( alt2 )
-    				{
-    				case 1:
-    					DebugEnterAlt(1);
-    					// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:
-    					{
-    					DebugLocation(42, 8);
-    					input.Consume();
-
-
-    					}
-    					break;
-
-    				default:
-    					goto loop2;
-    				}
-    			}
-
-    			loop2:
-    				;
-
-    			} finally { DebugExitSubRule(2); }
-
-
-    			}
-    			break;
-    		case 2:
-    			DebugEnterAlt(2);
-    			// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:42:22: ( 'a' .. 'f' | 'A' .. 'F' | '0' .. '9' )*
-    			{
-    			DebugLocation(42, 22);
-    			// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:42:22: ( 'a' .. 'f' | 'A' .. 'F' | '0' .. '9' )*
-    			try { DebugEnterSubRule(3);
-    			while (true)
-    			{
-    				int alt3=2;
-    				try { DebugEnterDecision(3, decisionCanBacktrack[3]);
-    				int LA3_0 = input.LA(1);
-
-    				if (((LA3_0>='0' && LA3_0<='9')||(LA3_0>='A' && LA3_0<='F')||(LA3_0>='a' && LA3_0<='f')))
-    				{
-    					alt3 = 1;
-    				}
-
-
-    				} finally { DebugExitDecision(3); }
-    				switch ( alt3 )
-    				{
-    				case 1:
-    					DebugEnterAlt(1);
-    					// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:
-    					{
-    					DebugLocation(42, 22);
-    					input.Consume();
-
-
-    					}
-    					break;
-
-    				default:
-    					goto loop3;
-    				}
-    			}
-
-    			loop3:
-    				;
-
-    			} finally { DebugExitSubRule(3); }
-
-
-    			}
-    			break;
-
-    		}
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("NUM", 36);
-    		LeaveRule("NUM", 36);
-    		LeaveRule_NUM();
-        }
-    }
-    // $ANTLR end "NUM"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_FINLINEA() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_FINLINEA() {}
-
-    // $ANTLR start "FINLINEA"
-    [GrammarRule("FINLINEA")]
-    private void mFINLINEA()
-    {
-    	EnterRule_FINLINEA();
-    	EnterRule("FINLINEA", 37);
-    	TraceIn("FINLINEA", 37);
-    		try
-    		{
-    		int _type = FINLINEA;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:44:9: ( '\\n' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:44:11: '\\n'
-    		{
-    		DebugLocation(44, 11);
-    		Match('\n'); 
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("FINLINEA", 37);
-    		LeaveRule("FINLINEA", 37);
-    		LeaveRule_FINLINEA();
-        }
-    }
-    // $ANTLR end "FINLINEA"
-
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void EnterRule_NL() {}
-    [Conditional("ANTLR_TRACE")]
-    protected virtual void LeaveRule_NL() {}
-
-    // $ANTLR start "NL"
-    [GrammarRule("NL")]
-    private void mNL()
-    {
-    	EnterRule_NL();
-    	EnterRule("NL", 38);
-    	TraceIn("NL", 38);
-    		try
-    		{
-    		int _type = NL;
-    		int _channel = DefaultTokenChannel;
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:46:5: ( ( '\\r' )? '\\n' )
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:46:9: ( '\\r' )? '\\n'
-    		{
-    		DebugLocation(46, 9);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:46:9: ( '\\r' )?
-    		int alt5=2;
-    		try { DebugEnterSubRule(5);
-    		try { DebugEnterDecision(5, decisionCanBacktrack[5]);
-    		int LA5_0 = input.LA(1);
-
-    		if ((LA5_0=='\r'))
-    		{
-    			alt5 = 1;
-    		}
-    		} finally { DebugExitDecision(5); }
-    		switch (alt5)
-    		{
-    		case 1:
-    			DebugEnterAlt(1);
-    			// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:46:9: '\\r'
-    			{
-    			DebugLocation(46, 9);
-    			Match('\r'); 
-
-    			}
-    			break;
-
-    		}
-    		} finally { DebugExitSubRule(5); }
-
-    		DebugLocation(46, 15);
-    		Match('\n'); 
-
-    		}
-
-    		state.type = _type;
-    		state.channel = _channel;
-    	}
-    	finally
-    	{
-    		TraceOut("NL", 38);
-    		LeaveRule("NL", 38);
-    		LeaveRule_NL();
-        }
-    }
-    // $ANTLR end "NL"
+    // $ANTLR end "DIR"
 
     public override void mTokens()
     {
-    	// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:8: ( T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | SIMBOLO | NUM | FINLINEA | NL )
-    	int alt6=38;
-    	try { DebugEnterDecision(6, decisionCanBacktrack[6]);
-    	try
-    	{
-    		alt6 = dfa6.Predict(input);
-    	}
-    	catch (NoViableAltException nvae)
-    	{
-    		DebugRecognitionException(nvae);
-    		throw;
-    	}
-    	} finally { DebugExitDecision(6); }
-    	switch (alt6)
-    	{
-    	case 1:
-    		DebugEnterAlt(1);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:10: T__9
-    		{
-    		DebugLocation(1, 10);
-    		mT__9(); 
+        // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:8: ( T__11 | T__12 | T__13 | OPERACION | TIPODIRECTIVA | OPERACIONDIRECTIVA | START | INT | NOMBRE | DIR )
+        int alt7 = 10;
+        try
+        {
+            DebugEnterDecision(7, decisionCanBacktrack[7]);
+            try
+            {
+                alt7 = dfa7.Predict(input);
+            }
+            catch (NoViableAltException nvae)
+            {
+                DebugRecognitionException(nvae);
+                throw;
+            }
+        }
+        finally { DebugExitDecision(7); }
+        switch (alt7)
+        {
+            case 1:
+                DebugEnterAlt(1);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:10: T__11
+                {
+                    DebugLocation(1, 10);
+                    mT__11();
 
-    		}
-    		break;
-    	case 2:
-    		DebugEnterAlt(2);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:15: T__10
-    		{
-    		DebugLocation(1, 15);
-    		mT__10(); 
+                }
+                break;
+            case 2:
+                DebugEnterAlt(2);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:16: T__12
+                {
+                    DebugLocation(1, 16);
+                    mT__12();
 
-    		}
-    		break;
-    	case 3:
-    		DebugEnterAlt(3);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:21: T__11
-    		{
-    		DebugLocation(1, 21);
-    		mT__11(); 
+                }
+                break;
+            case 3:
+                DebugEnterAlt(3);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:22: T__13
+                {
+                    DebugLocation(1, 22);
+                    mT__13();
 
-    		}
-    		break;
-    	case 4:
-    		DebugEnterAlt(4);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:27: T__12
-    		{
-    		DebugLocation(1, 27);
-    		mT__12(); 
+                }
+                break;
+            case 4:
+                DebugEnterAlt(4);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:28: OPERACION
+                {
+                    DebugLocation(1, 28);
+                    mOPERACION();
 
-    		}
-    		break;
-    	case 5:
-    		DebugEnterAlt(5);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:33: T__13
-    		{
-    		DebugLocation(1, 33);
-    		mT__13(); 
+                }
+                break;
+            case 5:
+                DebugEnterAlt(5);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:38: TIPODIRECTIVA
+                {
+                    DebugLocation(1, 38);
+                    mTIPODIRECTIVA();
 
-    		}
-    		break;
-    	case 6:
-    		DebugEnterAlt(6);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:39: T__14
-    		{
-    		DebugLocation(1, 39);
-    		mT__14(); 
+                }
+                break;
+            case 6:
+                DebugEnterAlt(6);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:52: OPERACIONDIRECTIVA
+                {
+                    DebugLocation(1, 52);
+                    mOPERACIONDIRECTIVA();
 
-    		}
-    		break;
-    	case 7:
-    		DebugEnterAlt(7);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:45: T__15
-    		{
-    		DebugLocation(1, 45);
-    		mT__15(); 
+                }
+                break;
+            case 7:
+                DebugEnterAlt(7);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:71: START
+                {
+                    DebugLocation(1, 71);
+                    mSTART();
 
-    		}
-    		break;
-    	case 8:
-    		DebugEnterAlt(8);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:51: T__16
-    		{
-    		DebugLocation(1, 51);
-    		mT__16(); 
+                }
+                break;
+            case 8:
+                DebugEnterAlt(8);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:77: INT
+                {
+                    DebugLocation(1, 77);
+                    mINT();
 
-    		}
-    		break;
-    	case 9:
-    		DebugEnterAlt(9);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:57: T__17
-    		{
-    		DebugLocation(1, 57);
-    		mT__17(); 
+                }
+                break;
+            case 9:
+                DebugEnterAlt(9);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:81: NOMBRE
+                {
+                    DebugLocation(1, 81);
+                    mNOMBRE();
 
-    		}
-    		break;
-    	case 10:
-    		DebugEnterAlt(10);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:63: T__18
-    		{
-    		DebugLocation(1, 63);
-    		mT__18(); 
+                }
+                break;
+            case 10:
+                DebugEnterAlt(10);
+                // C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:88: DIR
+                {
+                    DebugLocation(1, 88);
+                    mDIR();
 
-    		}
-    		break;
-    	case 11:
-    		DebugEnterAlt(11);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:69: T__19
-    		{
-    		DebugLocation(1, 69);
-    		mT__19(); 
+                }
+                break;
 
-    		}
-    		break;
-    	case 12:
-    		DebugEnterAlt(12);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:75: T__20
-    		{
-    		DebugLocation(1, 75);
-    		mT__20(); 
-
-    		}
-    		break;
-    	case 13:
-    		DebugEnterAlt(13);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:81: T__21
-    		{
-    		DebugLocation(1, 81);
-    		mT__21(); 
-
-    		}
-    		break;
-    	case 14:
-    		DebugEnterAlt(14);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:87: T__22
-    		{
-    		DebugLocation(1, 87);
-    		mT__22(); 
-
-    		}
-    		break;
-    	case 15:
-    		DebugEnterAlt(15);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:93: T__23
-    		{
-    		DebugLocation(1, 93);
-    		mT__23(); 
-
-    		}
-    		break;
-    	case 16:
-    		DebugEnterAlt(16);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:99: T__24
-    		{
-    		DebugLocation(1, 99);
-    		mT__24(); 
-
-    		}
-    		break;
-    	case 17:
-    		DebugEnterAlt(17);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:105: T__25
-    		{
-    		DebugLocation(1, 105);
-    		mT__25(); 
-
-    		}
-    		break;
-    	case 18:
-    		DebugEnterAlt(18);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:111: T__26
-    		{
-    		DebugLocation(1, 111);
-    		mT__26(); 
-
-    		}
-    		break;
-    	case 19:
-    		DebugEnterAlt(19);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:117: T__27
-    		{
-    		DebugLocation(1, 117);
-    		mT__27(); 
-
-    		}
-    		break;
-    	case 20:
-    		DebugEnterAlt(20);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:123: T__28
-    		{
-    		DebugLocation(1, 123);
-    		mT__28(); 
-
-    		}
-    		break;
-    	case 21:
-    		DebugEnterAlt(21);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:129: T__29
-    		{
-    		DebugLocation(1, 129);
-    		mT__29(); 
-
-    		}
-    		break;
-    	case 22:
-    		DebugEnterAlt(22);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:135: T__30
-    		{
-    		DebugLocation(1, 135);
-    		mT__30(); 
-
-    		}
-    		break;
-    	case 23:
-    		DebugEnterAlt(23);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:141: T__31
-    		{
-    		DebugLocation(1, 141);
-    		mT__31(); 
-
-    		}
-    		break;
-    	case 24:
-    		DebugEnterAlt(24);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:147: T__32
-    		{
-    		DebugLocation(1, 147);
-    		mT__32(); 
-
-    		}
-    		break;
-    	case 25:
-    		DebugEnterAlt(25);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:153: T__33
-    		{
-    		DebugLocation(1, 153);
-    		mT__33(); 
-
-    		}
-    		break;
-    	case 26:
-    		DebugEnterAlt(26);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:159: T__34
-    		{
-    		DebugLocation(1, 159);
-    		mT__34(); 
-
-    		}
-    		break;
-    	case 27:
-    		DebugEnterAlt(27);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:165: T__35
-    		{
-    		DebugLocation(1, 165);
-    		mT__35(); 
-
-    		}
-    		break;
-    	case 28:
-    		DebugEnterAlt(28);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:171: T__36
-    		{
-    		DebugLocation(1, 171);
-    		mT__36(); 
-
-    		}
-    		break;
-    	case 29:
-    		DebugEnterAlt(29);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:177: T__37
-    		{
-    		DebugLocation(1, 177);
-    		mT__37(); 
-
-    		}
-    		break;
-    	case 30:
-    		DebugEnterAlt(30);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:183: T__38
-    		{
-    		DebugLocation(1, 183);
-    		mT__38(); 
-
-    		}
-    		break;
-    	case 31:
-    		DebugEnterAlt(31);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:189: T__39
-    		{
-    		DebugLocation(1, 189);
-    		mT__39(); 
-
-    		}
-    		break;
-    	case 32:
-    		DebugEnterAlt(32);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:195: T__40
-    		{
-    		DebugLocation(1, 195);
-    		mT__40(); 
-
-    		}
-    		break;
-    	case 33:
-    		DebugEnterAlt(33);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:201: T__41
-    		{
-    		DebugLocation(1, 201);
-    		mT__41(); 
-
-    		}
-    		break;
-    	case 34:
-    		DebugEnterAlt(34);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:207: T__42
-    		{
-    		DebugLocation(1, 207);
-    		mT__42(); 
-
-    		}
-    		break;
-    	case 35:
-    		DebugEnterAlt(35);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:213: SIMBOLO
-    		{
-    		DebugLocation(1, 213);
-    		mSIMBOLO(); 
-
-    		}
-    		break;
-    	case 36:
-    		DebugEnterAlt(36);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:221: NUM
-    		{
-    		DebugLocation(1, 221);
-    		mNUM(); 
-
-    		}
-    		break;
-    	case 37:
-    		DebugEnterAlt(37);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:225: FINLINEA
-    		{
-    		DebugLocation(1, 225);
-    		mFINLINEA(); 
-
-    		}
-    		break;
-    	case 38:
-    		DebugEnterAlt(38);
-    		// C:\\Users\\dany_\\Desktop\\SIC_gramatica.g:1:234: NL
-    		{
-    		DebugLocation(1, 234);
-    		mNL(); 
-
-    		}
-    		break;
-
-    	}
+        }
 
     }
 
 
-	#region DFA
-	DFA6 dfa6;
+    #region DFA
+    DFA7 dfa7;
 
-	protected override void InitDFAs()
-	{
-		base.InitDFAs();
-		dfa6 = new DFA6(this);
-	}
+    protected override void InitDFAs()
+    {
+        base.InitDFAs();
+        dfa7 = new DFA7(this);
+    }
 
-	private class DFA6 : DFA
-	{
-		private const string DFA6_eotS =
-			"\x1\x10\x2\x11\x1\x18\x2\x11\x1\x1F\x8\xFFFF\x1\x10\x4\xFFFF\x1\x11\x16"+
-			"\xFFFF\x1\x36\x5\xFFFF\x1\x3A\x9\xFFFF";
-		private const string DFA6_eofS =
-			"\x3B\xFFFF";
-		private const string DFA6_minS =
-			"\x1\xA\x1\x44\x1\x59\x1\x30\x1\x49\x1\x4E\x1\x45\x1\x44\x2\xFFFF\x1\x44"+
-			"\x1\x54\x2\x44\x1\xFFFF\x1\x30\x4\xFFFF\x1\x44\xB\xFFFF\x1\x41\x1\xFFFF"+
-			"\x1\x53\x1\xFFFF\x1\x41\x6\xFFFF\x1\x30\x4\xFFFF\x1\x42\x1\x52\x9\xFFFF";
-		private const string DFA6_maxS =
-			"\x1\x66\x1\x4E\x1\x59\x1\x66\x1\x49\x1\x4E\x1\x53\x1\x44\x2\xFFFF\x1"+
-			"\x53\x1\x55\x1\x49\x1\x4F\x1\xFFFF\x1\x66\x4\xFFFF\x1\x44\xB\xFFFF\x1"+
-			"\x58\x1\xFFFF\x1\x53\x1\xFFFF\x1\x58\x6\xFFFF\x1\x66\x4\xFFFF\x1\x57"+
-			"\x1\x52\x9\xFFFF";
-		private const string DFA6_acceptS =
-			"\x8\xFFFF\x1\x11\x1\x12\x4\xFFFF\x1\x22\x1\xFFFF\x1\x23\x1\x24\x1\x25"+
-			"\x1\x26\x1\xFFFF\x1\x2\x1\x3\x1\x5\x1\x4\x1\x6\x1\x7\x1\x9\x1\xA\x1\xB"+
-			"\x1\xC\x1\x8\x1\xFFFF\x1\x13\x1\xFFFF\x1\x16\x1\xFFFF\x1\x1D\x1\x1E\x1"+
-			"\x1F\x1\x20\x1\x21\x1\x25\x1\xFFFF\x1\xD\x1\xE\x1\xF\x1\x10\x2\xFFFF"+
-			"\x1\x19\x1\x1A\x1\x1B\x1\x1C\x1\x1\x1\x14\x1\x15\x1\x18\x1\x17";
-		private const string DFA6_specialS =
-			"\x3B\xFFFF}>";
-		private static readonly string[] DFA6_transitionS =
-			{
-				"\x1\x12\x2\xFFFF\x1\x13\x22\xFFFF\xA\x11\x7\xFFFF\x1\x1\x1\x2\x1\x3"+
-				"\x1\x4\x1\x5\x1\x11\x3\xFFFF\x1\x6\x1\xFFFF\x1\x7\x1\x8\x1\xFFFF\x1"+
-				"\x9\x2\xFFFF\x1\xA\x1\xB\x1\xC\x2\xFFFF\x1\xD\x1\xE\x8\xFFFF\x2\xF\x4"+
-				"\x11",
-				"\x1\x14\x9\xFFFF\x1\x15",
-				"\x1\x16",
-				"\xA\x11\x7\xFFFF\x6\x11\x8\xFFFF\x1\x17\x11\xFFFF\x6\x11",
-				"\x1\x19",
-				"\x1\x1A",
-				"\x1\x1B\x1\xFFFF\x1\x1C\x4\xFFFF\x1\x1D\x6\xFFFF\x1\x1E",
-				"\x1\x20",
-				"",
-				"",
-				"\x1\x21\x1\x22\xD\xFFFF\x1\x23",
-				"\x1\x24\x1\x25",
-				"\x1\x26\x4\xFFFF\x1\x27",
-				"\x1\x28\xA\xFFFF\x1\x29",
-				"",
-				"\xA\x11\x7\xFFFF\x6\x11\x1A\xFFFF\x2\xF\x4\x11",
-				"",
-				"",
-				"",
-				"",
-				"\x1\x2B",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"\x1\x2C\x1\xFFFF\x1\x2D\x8\xFFFF\x1\x2E\xB\xFFFF\x1\x2F",
-				"",
-				"\x1\x30",
-				"",
-				"\x1\x31\x1\xFFFF\x1\x32\x8\xFFFF\x1\x33\x6\xFFFF\x1\x34\x4\xFFFF\x1"+
-				"\x35",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"\xA\x11\x7\xFFFF\x6\x11\x1A\xFFFF\x6\x11",
-				"",
-				"",
-				"",
-				"",
-				"\x1\x37\x14\xFFFF\x1\x38",
-				"\x1\x39",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				""
-			};
+    private class DFA7 : DFA
+    {
+        private const string DFA7_eotS =
+            "\x2\xFFFF\x1\x15\x1\xFFFF\x3\x15\x1\x20\x7\x13\x1\x15\x1\x13\x2\x15\x1" +
+            "\xFFFF\x1\x13\x2\xFFFF\x1\x15\x2\x13\x1\xFFFF\x5\x13\x1\xFFFF\x2\x13" +
+            "\x2\x20\x4\x13\x1\x20\x1\x13\x1\x20\x2\x13\x1\xFFFF\x1\x48\x2\x20\x1" +
+            "\x13\x4\x20\x1\x13\x1\x20\x1\x13\x3\x20\x2\x13\x1\x20\x1\x13\x1\x20\x1" +
+            "\x13\x3\x20\x2\x13\x1\xFFFF\x4\x20\x2\x54\x1\x13\x2\x20\x2\x54\x1\xFFFF" +
+            "\x1\x56\x1\xFFFF";
+        private const string DFA7_eofS =
+            "\x57\xFFFF";
+        private const string DFA7_minS =
+            "\x1\xA\x1\xFFFF\x1\x30\x1\xFFFF\x1\x30\x1\x27\x1\x30\x1\x41\x1\x44\x1" +
+            "\x55\x1\x52\x1\x44\x1\x54\x2\x44\x1\x30\x1\x27\x2\x30\x1\xFFFF\x1\x44" +
+            "\x2\xFFFF\x1\x30\x1\x44\x1\x4D\x1\xFFFF\x1\x56\x1\x51\x2\x54\x1\x55\x1" +
+            "\xFFFF\x1\x41\x1\x4C\x2\x41\x1\x55\x1\x53\x1\x41\x1\x42\x1\x41\x1\x58" +
+            "\x1\x41\x1\x52\x1\x54\x1\xFFFF\x1\x41\x1\x30\x1\x41\x1\x50\x4\x41\x1" +
+            "\x42\x1\x41\x1\x47\x3\x41\x2\x42\x1\x41\x1\x48\x1\x41\x1\x57\x3\x41\x1" +
+            "\x44\x1\x45\x1\xFFFF\x6\x41\x1\x54\x4\x41\x1\xFFFF\x1\x41\x1\xFFFF";
+        private const string DFA7_maxS =
+            "\x1\x7A\x1\xFFFF\x1\x7A\x1\xFFFF\x4\x7A\x1\x44\x1\x55\x1\x52\x1\x53\x1" +
+            "\x55\x1\x49\x1\x4F\x1\x7A\x1\x27\x1\x7A\x1\x66\x1\xFFFF\x1\x44\x2\xFFFF" +
+            "\x1\x7A\x1\x44\x1\x4D\x1\xFFFF\x1\x56\x1\x51\x2\x54\x1\x55\x1\xFFFF\x1" +
+            "\x58\x1\x4C\x2\x7A\x1\x55\x1\x53\x1\x58\x1\x42\x1\x7A\x1\x58\x1\x7A\x1" +
+            "\x52\x1\x54\x1\xFFFF\x3\x7A\x1\x50\x4\x7A\x1\x42\x1\x7A\x1\x47\x3\x7A" +
+            "\x1\x42\x1\x57\x1\x7A\x1\x48\x1\x7A\x1\x57\x3\x7A\x1\x44\x1\x45\x1\xFFFF" +
+            "\x6\x7A\x1\x54\x4\x7A\x1\xFFFF\x1\x7A\x1\xFFFF";
+        private const string DFA7_acceptS =
+            "\x1\xFFFF\x1\x1\x1\xFFFF\x1\x3\xF\xFFFF\x1\x9\x1\xFFFF\x1\x8\x1\x9\x3" +
+            "\xFFFF\x1\x6\x5\xFFFF\x1\x4\xD\xFFFF\x1\xA\x19\xFFFF\x1\x2\xB\xFFFF\x1" +
+            "\x5\x1\xFFFF\x1\x7";
+        private const string DFA7_specialS =
+            "\x57\xFFFF}>";
+        private static readonly string[] DFA7_transitionS =
+            {
+                "\x1\x3\x21\xFFFF\x1\x1\x3\xFFFF\xA\x12\x7\xFFFF\x1\x4\x1\xF\x1\x5\x1"+
+                "\x6\x1\x2\x1\x11\x3\x13\x1\x7\x1\x13\x1\x8\x1\x9\x1\x13\x1\xA\x2\x13"+
+                "\x1\xB\x1\xC\x1\xD\x2\x13\x1\xE\x1\x10\x2\x13\x4\xFFFF\x1\x13\x1\xFFFF"+
+                "\x6\x11\x14\x13",
+                "",
+                "\xA\x12\x7\xFFFF\x6\x11\x1\x13\x1\x16\x5\x13\x1\x14\xC\x13\x4\xFFFF"+
+                "\x1\x13\x1\xFFFF\x6\x11\x14\x13",
+                "",
+                "\xA\x12\x7\xFFFF\x3\x11\x1\x17\x2\x11\x1\x13\x1\x16\x5\x13\x1\x18\xC"+
+                "\x13\x4\xFFFF\x1\x13\x1\xFFFF\x6\x11\x14\x13",
+                "\x1\x1A\x8\xFFFF\xA\x12\x7\xFFFF\x6\x11\x1\x13\x1\x16\x6\x13\x1\x19"+
+                "\xB\x13\x4\xFFFF\x1\x13\x1\xFFFF\x6\x11\x14\x13",
+                "\xA\x12\x7\xFFFF\x6\x11\x1\x13\x1\x16\x1\x1B\x11\x13\x4\xFFFF\x1\x13"+
+                "\x1\xFFFF\x6\x11\x14\x13",
+                "\x4\x13\x1\x1C\x1\x13\x1\x1D\x4\x13\x1\x1E\x6\x13\x1\x1F\x7\x13\x4"+
+                "\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x21",
+                "\x1\x22",
+                "\x1\x23",
+                "\x1\x24\x1\x26\xD\xFFFF\x1\x25",
+                "\x1\x27\x1\x28",
+                "\x1\x29\x4\xFFFF\x1\x2A",
+                "\x1\x2B\xA\xFFFF\x1\x2C",
+                "\xA\x12\x7\xFFFF\x6\x11\x1\x13\x1\x16\x10\x13\x1\x2D\x1\x13\x4\xFFFF"+
+                "\x1\x13\x1\xFFFF\x6\x11\x14\x13",
+                "\x1\x1A",
+                "\xA\x12\x7\xFFFF\x6\x11\x1\x13\x1\x16\x12\x13\x4\xFFFF\x1\x13\x1\xFFFF"+
+                "\x6\x11\x14\x13",
+                "\xA\x12\x7\xFFFF\x6\x12\x1\xFFFF\x1\x2E\x18\xFFFF\x6\x12",
+                "",
+                "\x1\x2F",
+                "",
+                "",
+                "\xA\x12\x7\xFFFF\x3\x11\x1\x30\x2\x11\x1\x13\x1\x16\x12\x13\x4\xFFFF"+
+                "\x1\x13\x1\xFFFF\x6\x11\x14\x13",
+                "\x1\x31",
+                "\x1\x32",
+                "",
+                "\x1\x33",
+                "\x1\x34",
+                "\x1\x35",
+                "\x1\x36",
+                "\x1\x37",
+                "",
+                "\x1\x38\x1\xFFFF\x1\x39\x8\xFFFF\x1\x3A\xB\xFFFF\x1\x3B",
+                "\x1\x3C",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x3D",
+                "\x1\x3E",
+                "\x1\x3F\x1\xFFFF\x1\x40\x8\xFFFF\x1\x41\x6\xFFFF\x1\x42\x4\xFFFF\x1"+
+                "\x43",
+                "\x1\x44",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x45",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x46",
+                "\x1\x47",
+                "",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\xA\x12\x7\xFFFF\x6\x11\x1\x13\x1\x16\x12\x13\x4\xFFFF\x1\x13\x1\xFFFF"+
+                "\x6\x11\x14\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x49",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x4A",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x4B",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x4C",
+                "\x1\x4D\x14\xFFFF\x1\x4E",
+                "\x11\x13\x1\x4F\x8\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x50",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x51",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x52",
+                "\x1\x53",
+                "",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1\x55",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                "",
+                "\x1A\x13\x4\xFFFF\x1\x13\x1\xFFFF\x1A\x13",
+                ""
+            };
 
-		private static readonly short[] DFA6_eot = DFA.UnpackEncodedString(DFA6_eotS);
-		private static readonly short[] DFA6_eof = DFA.UnpackEncodedString(DFA6_eofS);
-		private static readonly char[] DFA6_min = DFA.UnpackEncodedStringToUnsignedChars(DFA6_minS);
-		private static readonly char[] DFA6_max = DFA.UnpackEncodedStringToUnsignedChars(DFA6_maxS);
-		private static readonly short[] DFA6_accept = DFA.UnpackEncodedString(DFA6_acceptS);
-		private static readonly short[] DFA6_special = DFA.UnpackEncodedString(DFA6_specialS);
-		private static readonly short[][] DFA6_transition;
+        private static readonly short[] DFA7_eot = DFA.UnpackEncodedString(DFA7_eotS);
+        private static readonly short[] DFA7_eof = DFA.UnpackEncodedString(DFA7_eofS);
+        private static readonly char[] DFA7_min = DFA.UnpackEncodedStringToUnsignedChars(DFA7_minS);
+        private static readonly char[] DFA7_max = DFA.UnpackEncodedStringToUnsignedChars(DFA7_maxS);
+        private static readonly short[] DFA7_accept = DFA.UnpackEncodedString(DFA7_acceptS);
+        private static readonly short[] DFA7_special = DFA.UnpackEncodedString(DFA7_specialS);
+        private static readonly short[][] DFA7_transition;
 
-		static DFA6()
-		{
-			int numStates = DFA6_transitionS.Length;
-			DFA6_transition = new short[numStates][];
-			for ( int i=0; i < numStates; i++ )
-			{
-				DFA6_transition[i] = DFA.UnpackEncodedString(DFA6_transitionS[i]);
-			}
-		}
+        static DFA7()
+        {
+            int numStates = DFA7_transitionS.Length;
+            DFA7_transition = new short[numStates][];
+            for (int i = 0; i < numStates; i++)
+            {
+                DFA7_transition[i] = DFA.UnpackEncodedString(DFA7_transitionS[i]);
+            }
+        }
 
-		public DFA6( BaseRecognizer recognizer )
-		{
-			this.recognizer = recognizer;
-			this.decisionNumber = 6;
-			this.eot = DFA6_eot;
-			this.eof = DFA6_eof;
-			this.min = DFA6_min;
-			this.max = DFA6_max;
-			this.accept = DFA6_accept;
-			this.special = DFA6_special;
-			this.transition = DFA6_transition;
-		}
+        public DFA7(BaseRecognizer recognizer)
+        {
+            this.recognizer = recognizer;
+            this.decisionNumber = 7;
+            this.eot = DFA7_eot;
+            this.eof = DFA7_eof;
+            this.min = DFA7_min;
+            this.max = DFA7_max;
+            this.accept = DFA7_accept;
+            this.special = DFA7_special;
+            this.transition = DFA7_transition;
+        }
 
-		public override string Description { get { return "1:1: Tokens : ( T__9 | T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | SIMBOLO | NUM | FINLINEA | NL );"; } }
+        public override string Description { get { return "1:1: Tokens : ( T__11 | T__12 | T__13 | OPERACION | TIPODIRECTIVA | OPERACIONDIRECTIVA | START | INT | NOMBRE | DIR );"; } }
 
-		public override void Error(NoViableAltException nvae)
-		{
-			DebugRecognitionException(nvae);
-		}
-	}
+        public override void Error(NoViableAltException nvae)
+        {
+            DebugRecognitionException(nvae);
+        }
+    }
 
- 
-	#endregion
+
+    #endregion
 
 }

@@ -73,6 +73,7 @@
     <Compile Include="SIC_gramatica.g4.parser.cs">
       <DependentUpon>SIC_gramatica.g4</DependentUpon>
     </Compile>
+    <Compile Include="TabSim.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

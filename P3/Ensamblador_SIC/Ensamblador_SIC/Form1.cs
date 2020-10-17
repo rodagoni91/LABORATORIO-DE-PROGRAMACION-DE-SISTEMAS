@@ -16,6 +16,7 @@ namespace Ensamblador_SIC
         private List<Instruccion> instrucciones;
         private List<Direccion> lDirecciones;
         private List<string> errores;
+        private List<TabSim> tablaSimbolos;
 
         public Form1()
         {
@@ -24,8 +25,6 @@ namespace Ensamblador_SIC
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            /*this.Location = new Point(0, 0);
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;*/
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.sPrograma = "";
             this.ensamblador = new Programa();
@@ -33,6 +32,7 @@ namespace Ensamblador_SIC
             this.errores = new List<string>();
             this.instrucciones = new List<Instruccion>();
             this.lDirecciones = new List<Direccion>();
+            this.tablaSimbolos = new List<TabSim>();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -56,14 +56,14 @@ namespace Ensamblador_SIC
             //CREAMOS EL PARSER CON LOS TOKENS CREADOS
             try
             {
-                //parser.prog();
+                parser.programa();
                 this.separarPrograma();
                 this.separarEtiquetas();
                 this.separarInstrucciones();
                 this.separDirecciones();
-                //this.separDirecciones();
+                this.calcularDirecciones();
+                this.crearTabSim();
                 this.buscarErrores();
-                //this.calcularDirecciones();
                 this.crearArchivo();
 
 
@@ -425,10 +425,6 @@ namespace Ensamblador_SIC
 
         private void calcularDirecciones()
         {
-            /*this.sDireccionHexadecimal = hexadecimal;
-            //this.iNumeroDecimal = int.Parse(this.sDireccionHexadecimal, System.Globalization.NumberStyles.HexNumber);
-            this.iNumeroDecimal = Convert.ToInt32(hexadecimal.ToString(), 16);
-            this.iLenea = linea + 1;*/
             string dirHexa = "";
             int iDirDec = 0;
             int iPos = 0;
@@ -468,8 +464,6 @@ namespace Ensamblador_SIC
                     {
                         int iNuevo = this.lDirecciones[iPos].iNumeroDecimal * 3;
                         iDirDec = iDirDec + iNuevo;
-                        //iDirDec = iDirDec * iNuevo;
-                        //dirHexa = $"{iDirDec:X}";
                         dirHexa = $"{iDirDec:X}";
                         linea.sDireccionHEXA = dirHexa;
                     }
@@ -491,6 +485,21 @@ namespace Ensamblador_SIC
 
                 this.dataGridView1.Rows.Add(linea.sDireccionHEXA, linea.sEtiqueta, linea.sCodigoOp, linea.sDireccion);
                 iPos++;
+            }
+        }
+
+        private void crearTabSim()
+        {
+            string dir;
+            string etq;
+
+            foreach(var l in ensamblador.programa)
+            {
+                if (l.sEtiqueta != null)
+                {
+                    this.tablaSimbolos.Add(new TabSim(l.sEtiqueta, l.sDireccionHEXA));
+                    this.dataGridView2.Rows.Add(l.sEtiqueta, l.sDireccionHEXA);
+                }
             }
         }
 
