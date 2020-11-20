@@ -39,6 +39,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.CP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Simbolo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instruccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -69,12 +75,6 @@
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Simbolo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instruccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -97,6 +97,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(254, 315);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // menuStrip1
             // 
@@ -194,6 +195,43 @@
             this.dataGridView1.Size = new System.Drawing.Size(712, 313);
             this.dataGridView1.TabIndex = 0;
             // 
+            // CP
+            // 
+            this.CP.HeaderText = "CP";
+            this.CP.Name = "CP";
+            this.CP.ReadOnly = true;
+            // 
+            // Simbolo
+            // 
+            this.Simbolo.HeaderText = "Simbolo";
+            this.Simbolo.Name = "Simbolo";
+            this.Simbolo.ReadOnly = true;
+            // 
+            // Instruccion
+            // 
+            this.Instruccion.HeaderText = "Instruccion / Directiva";
+            this.Instruccion.MaxInputLength = 50000;
+            this.Instruccion.Name = "Instruccion";
+            this.Instruccion.ReadOnly = true;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Direccionamiento";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Codigo OBJ";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -243,9 +281,9 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.textBox3);
-            this.groupBox6.Location = new System.Drawing.Point(688, 375);
+            this.groupBox6.Location = new System.Drawing.Point(644, 375);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(322, 316);
+            this.groupBox6.Size = new System.Drawing.Size(366, 316);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Programa Objeto";
@@ -256,7 +294,8 @@
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(316, 290);
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox3.Size = new System.Drawing.Size(354, 290);
             this.textBox3.TabIndex = 0;
             // 
             // groupBox4
@@ -301,7 +340,7 @@
             this.groupBox7.Controls.Add(this.dataGridView4);
             this.groupBox7.Location = new System.Drawing.Point(13, 375);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(669, 315);
+            this.groupBox7.Size = new System.Drawing.Size(625, 315);
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Mapa de Memoria";
@@ -330,7 +369,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(7, 20);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 30;
-            this.dataGridView4.Size = new System.Drawing.Size(656, 289);
+            this.dataGridView4.Size = new System.Drawing.Size(612, 289);
             this.dataGridView4.TabIndex = 0;
             // 
             // Column20
@@ -428,43 +467,6 @@
             this.Column19.HeaderText = "F";
             this.Column19.Name = "Column19";
             this.Column19.Width = 38;
-            // 
-            // CP
-            // 
-            this.CP.HeaderText = "CP";
-            this.CP.Name = "CP";
-            this.CP.ReadOnly = true;
-            // 
-            // Simbolo
-            // 
-            this.Simbolo.HeaderText = "Simbolo";
-            this.Simbolo.Name = "Simbolo";
-            this.Simbolo.ReadOnly = true;
-            // 
-            // Instruccion
-            // 
-            this.Instruccion.HeaderText = "Instruccion / Directiva";
-            this.Instruccion.MaxInputLength = 50000;
-            this.Instruccion.Name = "Instruccion";
-            this.Instruccion.ReadOnly = true;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Direccionamiento";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Codigo OBJ";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // Form1
             // 

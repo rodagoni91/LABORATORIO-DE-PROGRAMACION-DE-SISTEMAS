@@ -25,7 +25,7 @@ namespace Ensamblador_SIC
         Dictionary<string, List<string>> dMapaMemoria = new Dictionary<string, List<string>>();
         private Dictionary<string, string> codOp = new Dictionary<string, string>()
         {   { "ADD", "18" }, {"AND", "40" }, {"COMP", "28" }, {"DIV", "24" }, {"J", "3C"}, {"JEQ", "30"}, {"JGT", "34"}, {"JLT", "38"},
-            {"JSUB", "48"}, {"LDA", "00"}, {"LDCH", "50"}, {"LDL", "08"}, {"LDX", "04"}, {"MUL", "20"}, {"OR", "44"}, {"RD", "D8"},
+            {"JSUB", "48"}, {"LDA", "00"}, {"3z", "50"}, {"LDL", "08"}, {"LDX", "04"}, {"MUL", "20"}, {"OR", "44"}, {"RD", "D8"},
             { "STA", "0C"}, {"STCH", "54"}, {"STL", "14"}, {"STSW", "E8"}, {"STX", "10"}, {"SUB", "1C"}, {"TD", "E0"}, { "TIX", "2C"},
             { "WD", "DC"}
         };
@@ -71,7 +71,7 @@ namespace Ensamblador_SIC
             {
                 parser.programa();
                 this.tablaSimbolos = new List<TabSim>();
-                
+
                 this.limpiarDataGrids();
                 this.separarPrograma();
                 this.separarEtiquetas();
@@ -79,16 +79,16 @@ namespace Ensamblador_SIC
                 this.separDirecciones();
                 this.calcularDirecciones();
                 this.crearTabSim();
-                /*this.codigoOBJ();
-                this.buscarErrores();
-                this.crearArchivo();
+                this.codigoOBJ();
+                this.codigoObjeto();
+                this.archivoErrores();
+                /*this.buscarErrores();
+                
                 this.sPrograma = this.codigoObjeto();
+                this.crearArchivo();
                 this.mapaMemoria();*/
                 this.llenarDataGrid();
-
                 this.ejecutarProgramaToolStripMenuItem.Enabled = true;
-
-
             }
             catch (Exception error)
             {
@@ -140,20 +140,42 @@ namespace Ensamblador_SIC
                         instrucciones = lAux.ToArray();
                         if (instrucciones.Length == 4)
                         {
+                            //etiqueta
                             string etiqueta = instrucciones[0];
+                            //instruccion
                             string operacion = instrucciones[1];
+                            //direccion
                             string direccion = instrucciones[2];
                             string direccion2 = instrucciones[3];
-                            lLinea = new Linea(etiqueta, operacion, direccion + direccion2);
-                            ensamblador.programa.Add(lLinea);
+                            if (this.existeInstruccion(operacion))
+                            {
+                                lLinea = new Linea(etiqueta, operacion, direccion + direccion2);
+                                ensamblador.programa.Add(lLinea);
+                            }
+                            else
+                            {
+                                lLinea = new Linea(etiqueta, operacion, direccion + direccion2);
+                                lLinea.sDireccionamiento = "Error de Sintaxis";
+                                ensamblador.programa.Add(lLinea);
+                            }
                         }
                         else if (instrucciones.Length == 3)
                         {
                             string etiqueta = instrucciones[0];
                             string operacion = instrucciones[1];
                             string direccion = instrucciones[2];
-                            lLinea = new Linea(etiqueta, operacion, direccion);
-                            ensamblador.programa.Add(lLinea);
+                            if (this.existeInstruccion(etiqueta))
+                            {
+                                lLinea = new Linea(etiqueta, operacion + direccion);
+                                lLinea.sDireccionamiento = "Error de Sintaxis";
+                                ensamblador.programa.Add(lLinea);
+                            }
+                            else if (this.existeInstruccion(operacion))
+                            {
+                                lLinea = new Linea(etiqueta, operacion, direccion);
+                                ensamblador.programa.Add(lLinea);
+                            }
+
                         }
                         else if (instrucciones.Length == 2)
                         {
@@ -161,6 +183,7 @@ namespace Ensamblador_SIC
                             string direccion = instrucciones[1];
                             lLinea = new Linea(operacion, direccion);
                             ensamblador.programa.Add(lLinea);
+
                         }
                         else if (instrucciones.Length == 1)
                         {
@@ -369,7 +392,7 @@ namespace Ensamblador_SIC
 
         private bool existeInstruccion(string instruccion)
         {
-            List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCG", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
+            List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCH", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
             if (listaInstrucciones.Contains(instruccion))
             {
                 return true;
@@ -382,7 +405,8 @@ namespace Ensamblador_SIC
 
         private void instruccionExiste()
         {
-            List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCG", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
+            //List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCG", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
+            List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCH", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
             string mensaje = "Errores de instrucciones y/o directivas \r\n";
             string[] instruccion = new string[1];
 
@@ -455,7 +479,7 @@ namespace Ensamblador_SIC
             {
                 if (this.ensamblador.programa.IndexOf(linea) == 0)
                 {
-                    linea.sDireccionHEXA = lDirecciones[0].sDireccionHexadecimal.Trim( 'H');
+                    linea.sDireccionHEXA = lDirecciones[0].sDireccionHexadecimal.Trim('H');
                     dirHexa = lDirecciones[0].sDireccionHexadecimal;
                     dirHexa = dirHexa.Trim('H');
                     dirHexa = dirHexa.Trim('h');
@@ -570,7 +594,7 @@ namespace Ensamblador_SIC
                             {
                                 if (linea.sDireccion.Contains(",X"))
                                 {
-                                    linea.sDireccionamiento =  "Indexado";
+                                    linea.sDireccionamiento = "Indexado";
                                 }
                                 else
                                 {
@@ -581,7 +605,7 @@ namespace Ensamblador_SIC
                             {
                                 linea.sDireccionamiento = "----";
                             }
-                            
+
 
                         }
                     }
@@ -591,7 +615,7 @@ namespace Ensamblador_SIC
                         errores = errores + "Error, Instruccion " + linea.sCodigoOp + " no Existe.\r\n";
                         dirHexa = $"{iDirDec:X}";
                         linea.sDireccionHEXA = dirHexa;
-                        
+
                     }
                 }
                 iPos++;
@@ -649,7 +673,7 @@ namespace Ensamblador_SIC
 
         private void codigoOBJ()
         {
-            List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCG", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
+            List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCH", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
 
             string sOBJ = "";
             foreach (var l in ensamblador.programa)
@@ -659,26 +683,26 @@ namespace Ensamblador_SIC
                     if (l.sCodigoOp == "START" || l.sCodigoOp == "END" || l.sCodigoOp == "RESB" || l.sCodigoOp == "RESW")
                     {
                         l.sCodigoObjeto = "---";
-                        l.sDireccionamiento = "---";
+                        //l.sDireccionamiento = "---";
                     }
                     else
                     {
                         if (l.sCodigoOp == "RSUB")
                         {
                             l.sCodigoObjeto = "4C0000";
-                            l.sDireccionamiento = "DIRECTO";
+                            //l.sDireccionamiento = "DIRECTO";
                         }
                         else if (l.sCodigoOp == "BYTE")
                         {
                             if (l.sDireccion.Contains("C\"") && l.sDireccion[0] == 'C')
                             {
                                 l.sCodigoObjeto = this.codigoCadena(l.sDireccion);
-                                l.sDireccionamiento = "DIRECTO";
+                                //l.sDireccionamiento = "DIRECTO";
                             }
                             else if (l.sDireccion.Contains("X\"") && l.sDireccion[0] == 'X' || l.sDireccion.Contains("X\'") && l.sDireccion[0] == 'X')
                             {
                                 l.sCodigoObjeto = this.obtenerCodigo(l.sDireccion);
-                                l.sDireccionamiento = "DIRECTO";
+                                //l.sDireccionamiento = "DIRECTO";
                             }
                         }
                         else if (l.sCodigoOp == "WORD")
@@ -712,24 +736,37 @@ namespace Ensamblador_SIC
                             }
 
                             l.sCodigoObjeto = hexa;
-                            l.sDireccionamiento = "DIRECTO";
+                            //l.sDireccionamiento = "DIRECTO";
                         }
                         else
                         {
                             sOBJ = "";
-                            if (l.sDireccion.Contains(",X"))
+                            if (l.sDireccion.Contains(",X") || l.sDireccionamiento == "Indexado")
                             {
                                 string direccion = l.sDireccion.Substring(0, l.sDireccion.Length - 2);
-                                sOBJ = this.codigoOperacion(l.sCodigoOp) + this.buscarTABSIB(direccion);
+                                string hexa = this.buscarTABSIB(direccion);
+                                int iDecimal = Convert.ToInt32(hexa, 16);
+                                string sBinario = Convert.ToString(iDecimal, 2);
+                                string nBinario = "1000000000000000";
+                                int iBinario = Convert.ToInt32(nBinario, 2) + iDecimal;
+                                string sBinario2 = Convert.ToString(iBinario, 2);
+                                if (sBinario.Length > 16)
+                                {
+                                    int sobra = sBinario.Length - 16;
+                                    sBinario2 = sBinario2.Substring(sobra);
+                                    iBinario = Convert.ToInt32(sBinario2, 2);
+                                }
+                                sBinario2 = Convert.ToString(iBinario, 16).ToUpper();
+                                sOBJ = this.codigoOperacion(l.sCodigoOp) + sBinario2;
                                 l.sCodigoObjeto = sOBJ;
-                                l.sDireccionamiento = "INDEXADO";
+                                //l.sDireccionamiento = "INDEXADO";
                             }
                             else
                             {
                                 //sOBJ = this.codigoOperacion(l.sCodigoOp) + this.buscarTABSIB(l.sEtiqueta);
                                 sOBJ = this.codigoOperacion(l.sCodigoOp) + this.buscarTABSIB(l.sDireccion);
                                 l.sCodigoObjeto = sOBJ;
-                                l.sDireccionamiento = "DIRECTO";
+                                //l.sDireccionamiento = "DIRECTO";
                             }
                         }
 
@@ -835,9 +872,8 @@ namespace Ensamblador_SIC
             int iLongitud = iDireccionFinal - iDireccionInicio;
             string sNombrePrograma = this.ensamblador.programa[0].sEtiqueta;
             string sTamano = $"{iLongitud:X}";
-
+            #region Registro Encabezado
             int i = sNombrePrograma.Length;
-
             if (i < 6)
             {
                 int espBlancos = 6 - i;
@@ -859,7 +895,6 @@ namespace Ensamblador_SIC
                 sRegistroEncabezado = sRegistroEncabezado + sNombrePrograma.Substring(0, 6);
 
             }
-
             if (sDireccionInicio.Length == 6)
             {
                 sRegistroEncabezado = sRegistroEncabezado + sDireccionInicio + sTamano;
@@ -876,131 +911,108 @@ namespace Ensamblador_SIC
                 sRegistroEncabezado = sRegistroEncabezado + sDireccionInicio + sTamano;
             }
             lRegistros.Add(sRegistroEncabezado);
-
             string sD = this.ensamblador.programa[0].sDireccionHEXA.Substring(0, this.ensamblador.programa[0].sDireccionHEXA.Length - 1);
-
-
             int falta = 6 - sD.Length;
             for (int a = 0; a < falta; a++)
             {
                 sD = "0" + sD;
             }
-
             sRegistroTexto = sRegistroTexto + sD + "XX";
             iDireccionInicio = Convert.ToInt32(sD, 16);
-
+            #endregion
+            sRegistroTexto = "T";
             foreach (var l in this.ensamblador.programa)
             {
-                if (l != this.ensamblador.programa[0] &&
-                    l != this.ensamblador.programa[iTotalLineas - 1] &&
-                    l.sCodigoObjeto.Contains("ERROR") == false &&
-                    l.sCodigoOp != "RESW" && l.sCodigoOp != "RESB")
+                /* 1 T
+                 * 2 - 7 Direccion de Inicio
+                 * 8 - 9 Longitud de Codigo
+                 * 10 - 69 Codigo Objeto
+                 * */
+                if (l.sCodigoObjeto != "---")
                 {
-                    if (sRegistroTexto.Length <= 69)
+                    if (sRegistroTexto.Length + l.sCodigoObjeto.Length <= 69)
                     {
-                        iDireccionFinal = Convert.ToInt32(l.sDireccionHEXA, 16);
-                        foreach (var c in l.sCodigoObjeto)
+                        if(sRegistroTexto == "T")
                         {
-                            if (sRegistroTexto.Length <= 69)
-                                sRegistroTexto = sRegistroTexto + c;
-                            else
+                            int iLong = 6 - l.sDireccionHEXA.Length;
+                            for (int y = 0; y < iLong; y++)
                             {
-                                iLongitud = iDireccionFinal - iDireccionInicio;
-                                sTamano = $"{iLongitud:X}";
-                                sRegistroTexto = sRegistroTexto.Replace("XX", sTamano);
-                                lRegistros.Add(sRegistroTexto);
-
-                                if (l.sDireccionHEXA.Length == 6)
-                                {
-                                    sRegistroTexto = "T" + l.sDireccionHEXA;
-                                }
-                                else
-                                {
-                                    sRegistroTexto = "T";
-                                    int faltante = 6 - l.sDireccionHEXA.Length;
-                                    for (int a = 0; a < faltante; a++)
-                                    {
-                                        sRegistroTexto = "0" + l.sDireccionHEXA;
-                                    }
-
-                                    sRegistroTexto = sRegistroTexto + "XX";
-                                }
+                                l.sDireccionHEXA = "0" + l.sDireccionHEXA;
                             }
-                        }
-                    }
-                    else
-                    {
-                        iLongitud = iDireccionFinal - iDireccionInicio;
-                        sTamano = $"{iLongitud:X}";
-                        sRegistroTexto = sRegistroTexto.Replace("XX", sTamano);
-                        lRegistros.Add(sRegistroTexto);
-                        if (l.sDireccionHEXA.Length == 6)
-                        {
-                            sRegistroTexto = "T" + l.sDireccionHEXA;
+                            sRegistroTexto = sRegistroTexto + l.sDireccionHEXA.ToString() + "XX" + l.sCodigoObjeto;
                         }
                         else
                         {
-                            sRegistroTexto = "T";
-                            int faltante = 6 - l.sDireccionHEXA.Length;
-                            for (int a = 0; a < faltante; a++)
-                            {
-                                sRegistroTexto = "0" + l.sDireccionHEXA;
-                            }
-
-                            sRegistroTexto = sRegistroTexto + "XX";
+                            sRegistroTexto = sRegistroTexto + l.sCodigoObjeto;
                         }
-                    }
-                }
-                else if (l != this.ensamblador.programa[0] &&
-                    l != this.ensamblador.programa[iTotalLineas - 1])
-                {
-                    iLongitud = iDireccionFinal - iDireccionInicio;
-                    sTamano = $"{iLongitud:X}";
-                    sRegistroTexto = sRegistroTexto.Replace("XX", sTamano);
-                    lRegistros.Add(sRegistroTexto);
-                    sRegistroTexto = "T";
-
-                    if (l.sDireccionHEXA.Length == 6)
-                    {
-                        sRegistroTexto = "T" + l.sDireccionHEXA;
                     }
                     else
                     {
-                        int faltante = 6 - l.sDireccionHEXA.Length;
-                        string s = l.sDireccionHEXA;
-
-                        for (int a = 0; a < faltante; a++)
+                        //int iLongitudRegistro = sRegistroTexto.Substring(9).Length;
+                        if(sRegistroTexto.Substring(9).Length % 2 == 0)
                         {
-                            //sRegistroTexto = "0" + l.sDireccionHEXA;
-                            s = "0" + s;
+                            int iLongitudRegistro = sRegistroTexto.Substring(9).Length / 2;
                         }
-
-                        sRegistroTexto = "T" + s + "XX";
+                        else
+                        {
+                            int iLongitudRegistro = (sRegistroTexto.Substring(9).Length / 2) + 1;
+                        }
+                        string sLongitudRegistro = iLongitud.ToString("X");
+                        sRegistroTexto.Replace("XX", sLongitudRegistro);
+                        lRegistros.Add(sRegistroTexto);
+                        int iLong = 6 - l.sDireccionHEXA.Length;
+                        for (int y = 0; y < iLong; y++)
+                        {
+                            l.sDireccionHEXA = "0" + l.sDireccionHEXA;
+                        }
+                        sRegistroTexto = "T" + l.sDireccionHEXA.ToString() + "XX" + l.sCodigoObjeto;
                     }
+
+                }
+                if(l.sCodigoOp == "RESB"|| l.sCodigoOp == "RESW")
+                {
+                    int iLongitudRegistro = 0;
+                    if (sRegistroTexto.Length > 9)
+                    {
+                        if (sRegistroTexto.Substring(9).Length % 2 == 0)
+                        {
+                            iLongitudRegistro = sRegistroTexto.Substring(9).Length / 2;
+                        }
+                        else
+                        {
+                            iLongitudRegistro = (sRegistroTexto.Substring(9).Length / 2) + 1;
+                        }
+                        string sLongitudRegistro = iLongitudRegistro.ToString("X");
+                        sRegistroTexto = sRegistroTexto.Replace("XX", sLongitudRegistro);
+                        lRegistros.Add(sRegistroTexto);
+                    }
+
+                    sRegistroTexto = "T";
                 }
             }
-
-
             lRegistros.Add("E" + this.ensamblador.programa[1].sDireccionHEXA);
+           
+            foreach (var r in this.lRegistros)
+            {
+                textBox3.Text = textBox3.Text + r + "\r\n";
+                //fichero.WriteLine(r + "\r\n");
+            }
+        
+            return (sTamano);
+        }
+
+        private void archivoErrores()
+        {
+            string sNombrePrograma = this.ensamblador.programa[0].sEtiqueta;
             string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\" + sNombrePrograma + ".obj";
             StreamWriter fichero; //Clase que representa un fichero
             fichero = File.CreateText(sNombrePrograma + ".obj");
             foreach (var r in this.lRegistros)
             {
-
-                textBox3.Text = textBox3.Text + r + "\r\n";
                 fichero.WriteLine(r + "\r\n");
-
             }
-
-
-
-            //fichero.WriteLine(textBox2.Text); // Lo mismo que cuando escribimos por consola
-            //fichero.Write("fin de la cita.");
             fichero.Close(); // Al cerrar el fic
             MessageBox.Show("Archivo de errores generado en: " + path);
-
-            return (sTamano);
         }
 
         private void mapaMemoria()
@@ -1149,6 +1161,12 @@ namespace Ensamblador_SIC
         private void ejecutarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.ejecucion.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.ScrollBars = ScrollBars.Vertical;
+            textBox1.WordWrap = false;
         }
     }
 }
