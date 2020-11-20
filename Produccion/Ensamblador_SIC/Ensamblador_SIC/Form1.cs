@@ -10,6 +10,7 @@ namespace Ensamblador_SIC
 {
     public partial class Form1 : Form
     {
+        #region variables
         public Form2 ejecucion;
         private string sTamaProgrma;
         private string sTamaInicial;
@@ -29,6 +30,7 @@ namespace Ensamblador_SIC
             { "STA", "0C"}, {"STCH", "54"}, {"STL", "14"}, {"STSW", "E8"}, {"STX", "10"}, {"SUB", "1C"}, {"TD", "E0"}, { "TIX", "2C"},
             { "WD", "DC"}
         };
+        #endregion
 
         public Form1()
         {
@@ -71,7 +73,6 @@ namespace Ensamblador_SIC
             {
                 parser.programa();
                 this.tablaSimbolos = new List<TabSim>();
-
                 this.limpiarDataGrids();
                 this.separarPrograma();
                 this.separarEtiquetas();
@@ -81,13 +82,9 @@ namespace Ensamblador_SIC
                 this.crearTabSim();
                 this.codigoOBJ();
                 this.codigoObjeto();
-                this.archivoErrores();
-                /*this.buscarErrores();
-                
-                this.sPrograma = this.codigoObjeto();
-                this.crearArchivo();
-                this.mapaMemoria();*/
+                this.mapaMemoria();
                 this.llenarDataGrid();
+                this.archivoErrores();
                 this.ejecutarProgramaToolStripMenuItem.Enabled = true;
             }
             catch (Exception error)
@@ -105,6 +102,8 @@ namespace Ensamblador_SIC
             this.dataGridView2.Refresh();
             this.dataGridView3.Rows.Clear();
             this.dataGridView3.Refresh();
+            this.dataGridView4.Rows.Clear();
+            this.dataGridView4.Refresh();
         }
 
         private void separarPrograma()
@@ -932,14 +931,16 @@ namespace Ensamblador_SIC
                 {
                     if (sRegistroTexto.Length + l.sCodigoObjeto.Length <= 69)
                     {
-                        if(sRegistroTexto == "T")
+                        if (sRegistroTexto == "T")
                         {
                             int iLong = 6 - l.sDireccionHEXA.Length;
+                            string sDireccionHexa = l.sDireccionHEXA;
                             for (int y = 0; y < iLong; y++)
                             {
-                                l.sDireccionHEXA = "0" + l.sDireccionHEXA;
+                                //l.sDireccionHEXA = "0" + l.sDireccionHEXA;
+                                sDireccionHexa = "0" + sDireccionHexa;
                             }
-                            sRegistroTexto = sRegistroTexto + l.sDireccionHEXA.ToString() + "XX" + l.sCodigoObjeto;
+                            sRegistroTexto = sRegistroTexto + sDireccionHexa.ToString() + "XX" + l.sCodigoObjeto;
                         }
                         else
                         {
@@ -949,7 +950,7 @@ namespace Ensamblador_SIC
                     else
                     {
                         //int iLongitudRegistro = sRegistroTexto.Substring(9).Length;
-                        if(sRegistroTexto.Substring(9).Length % 2 == 0)
+                        if (sRegistroTexto.Substring(9).Length % 2 == 0)
                         {
                             int iLongitudRegistro = sRegistroTexto.Substring(9).Length / 2;
                         }
@@ -969,7 +970,7 @@ namespace Ensamblador_SIC
                     }
 
                 }
-                if(l.sCodigoOp == "RESB"|| l.sCodigoOp == "RESW")
+                if (l.sCodigoOp == "RESB" || l.sCodigoOp == "RESW")
                 {
                     int iLongitudRegistro = 0;
                     if (sRegistroTexto.Length > 9)
@@ -991,13 +992,13 @@ namespace Ensamblador_SIC
                 }
             }
             lRegistros.Add("E" + this.ensamblador.programa[1].sDireccionHEXA);
-           
+
             foreach (var r in this.lRegistros)
             {
                 textBox3.Text = textBox3.Text + r + "\r\n";
                 //fichero.WriteLine(r + "\r\n");
             }
-        
+
             return (sTamano);
         }
 
@@ -1012,12 +1013,12 @@ namespace Ensamblador_SIC
                 fichero.WriteLine(r + "\r\n");
             }
             fichero.Close(); // Al cerrar el fic
-            MessageBox.Show("Archivo de errores generado en: " + path);
+            MessageBox.Show("Archivo de codigo objeto generado en: " + path);
         }
 
         private void mapaMemoria()
         {
-            this.dataGridView4.Rows.Clear();
+
             int inicioProgrma = Convert.ToInt32(this.sTamaInicial, 16);
             int finalProgrma = Convert.ToInt32(this.sTamaFinal, 16);
             int inicio = inicioProgrma;
@@ -1027,27 +1028,27 @@ namespace Ensamblador_SIC
             string direccion = "";
             string dirInicio = "";
             List<string> lAux = new List<string>();
-
+            this.dMapaMemoria = new Dictionary<string, List<string>>();
             for (int i = inicio; i < final; i += 16)
             {
                 direccion = $"{i:X}";
                 lAux = new List<string>();
                 lAux.Add(direccion);
-                lAux.Add("X" + direccion.Substring(0, 3) + "1X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "2X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "3X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "4X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "5X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "6X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "7X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "8X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "9X");
-                lAux.Add("X" + direccion.Substring(0, 3) + "AX");
-                lAux.Add("X" + direccion.Substring(0, 3) + "BX");
-                lAux.Add("X" + direccion.Substring(0, 3) + "CX");
-                lAux.Add("X" + direccion.Substring(0, 3) + "DX");
-                lAux.Add("X" + direccion.Substring(0, 3) + "EX");
-                lAux.Add("X" + direccion.Substring(0, 3) + "FX");
+                lAux.Add(direccion.Substring(0, 3) + "1X");//1
+                lAux.Add(direccion.Substring(0, 3) + "2X");//2
+                lAux.Add(direccion.Substring(0, 3) + "3X");//3
+                lAux.Add(direccion.Substring(0, 3) + "4X");//4
+                lAux.Add(direccion.Substring(0, 3) + "5X");//6
+                lAux.Add(direccion.Substring(0, 3) + "6X");//6
+                lAux.Add(direccion.Substring(0, 3) + "7X");//7
+                lAux.Add(direccion.Substring(0, 3) + "8X");//8
+                lAux.Add(direccion.Substring(0, 3) + "9X");//9
+                lAux.Add(direccion.Substring(0, 3) + "AX");//10
+                lAux.Add(direccion.Substring(0, 3) + "BX");//11
+                lAux.Add(direccion.Substring(0, 3) + "CX");//12
+                lAux.Add(direccion.Substring(0, 3) + "DX");//13
+                lAux.Add(direccion.Substring(0, 3) + "EX");//14
+                lAux.Add(direccion.Substring(0, 3) + "FX");//15
                 this.dMapaMemoria.Add(direccion, lAux);
             }
 
@@ -1074,7 +1075,12 @@ namespace Ensamblador_SIC
 
             foreach (var d in this.dMapaMemoria)
             {
-                this.dataGridView4.Rows.Add(d.Key, d.Value[0], d.Value[1], d.Value[2], d.Value[3], d.Value[4], d.Value[5], d.Value[6], d.Value[7], d.Value[7], d.Value[8], d.Value[9], d.Value[10], d.Value[11], d.Value[12], d.Value[13], d.Value[14], d.Value[15]);
+                for (int t = 0; t < 16; t++)
+                {
+                    if (d.Value[t].Length >= 4)
+                        d.Value[t] = "---";
+                }
+                this.dataGridView4.Rows.Add(d.Key, d.Value[0], d.Value[1], d.Value[2], d.Value[3], d.Value[4], d.Value[5], d.Value[6], d.Value[7], d.Value[8], d.Value[9], d.Value[10], d.Value[11], d.Value[12], d.Value[13], d.Value[14], d.Value[15]);
             }
 
             ejecucion = new Form2();
@@ -1126,6 +1132,9 @@ namespace Ensamblador_SIC
                     n = "";
                 }
             }
+
+            if (n.Length == 1)
+                lista.Add(n + "0");
 
             return lista;
         }
