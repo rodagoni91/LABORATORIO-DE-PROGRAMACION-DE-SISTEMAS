@@ -7,10 +7,10 @@ namespace Ensamblador_SIC
 {
     public class Ejecucion
     {
-        string sCp;
-        string sBytes;
-        string sInstruccion;
-        string sEfecto;
+        public string sCp;
+        public string sBytes;
+        public string sInstruccion;
+        public string sEfecto;
 
         public Ejecucion(string scp, string sbytes, string sinstruccion, string sefecto)
         {
