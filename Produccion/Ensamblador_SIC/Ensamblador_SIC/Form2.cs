@@ -151,7 +151,7 @@ namespace Ensamblador_SIC
                 for (int t = 0; t < 16; t++)
                 {
                     if (d.Value[t].Length >= 4)
-                        d.Value[t] = "---";
+                        d.Value[t] = "00";
                 }
                 this.dataGridView1.Rows.Add(d.Key, d.Value[0], d.Value[1], d.Value[2], d.Value[3], d.Value[4], d.Value[5], d.Value[6], d.Value[7], d.Value[8], d.Value[9], d.Value[10], d.Value[11], d.Value[12], d.Value[13], d.Value[14], d.Value[15]);
             }
@@ -192,42 +192,74 @@ namespace Ensamblador_SIC
 
         public void ejecutar()
         {
-            int iInstruccion = 0;
+
             int inicioProgrma = Convert.ToInt32(this.sTamaInicial, 16);
             int finalProgrma = Convert.ToInt32(this.sTamaFinal, 16);
-
-            for (int i = inicioProgrma; i < finalProgrma; i += 3)
+            int iInstruccion = inicioProgrma;
+            int j = inicioProgrma;
+            string sIns = "";
+            string m = "";
+            foreach (var ins in this.dMapaMemoria)
             {
-                //iInstruccion = this.regresarInstruccion()
-                int j = 0;
-                string sIns = "";
-                string m = "";
-                foreach (var ins in this.dMapaMemoria)
+                foreach (var value in ins.Value)
                 {
-                    foreach (var value in ins.Value)
+                    //j = iInstruccion;
+                    if (j == iInstruccion)
                     {
-                        if (j == i)
+                        sIns = this.regresarInstruccion(value);
+                        if (sIns != "ERROR")
                         {
-                            sIns = this.regresarInstruccion(value);
-                            if (sIns != "ERROR")
-                            {
-                                int iPos = ins.Value.IndexOf(value) + 1;
-                                m = ins.Value[iPos] + ins.Value[iPos + 1];
-                                this.instruccion(sIns, m, sCP, value, i);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ocurrio un error la instruccion no existe");
-                                break;
-                            }
+                            //int iPos = ins.Value.IndexOf(value) + 1;
+                            m = this.registroM(j);
+                            this.instruccion(sIns, m, j, value, iInstruccion);
+                            iInstruccion += 3;
                         }
                         else
                         {
-                            j++;
+                            MessageBox.Show("Ocurrio un error la instruccion no existe");
+                            break;
                         }
                     }
+
+                    j++;
                 }
             }
+
+
+        }
+
+        public string registroM(int iM)
+        {
+            int iInstruccion = 0;
+            int inicioProgrma = Convert.ToInt32(this.sTamaInicial, 16);
+            int finalProgrma = Convert.ToInt32(this.sTamaFinal, 16);
+            int iPosicion = inicioProgrma;
+            bool bandera = false;
+            string sRegistroM = "";
+
+            foreach (var ins in this.dMapaMemoria)
+            {
+                foreach (var value in ins.Value)
+                {
+                    if (iPosicion == iM)
+                    {
+                        bandera = true;
+                    }
+                    if (bandera && iPosicion > iM)
+                    {
+                        sRegistroM = sRegistroM + value;
+                        iInstruccion++;
+                    }
+                    if (iInstruccion == 2)
+                    {
+                        bandera = false;
+                        break;
+                    }
+                    iPosicion++;
+
+                }
+            }
+            return sRegistroM;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -251,39 +283,45 @@ namespace Ensamblador_SIC
             return resultado;
         }
 
-        private void instruccion(string instruccion, string m, string cp, string sCodigo, int i)
+        private void instruccion(string instruccion, string m, int cp, string sCodigo, int i)
         {
             string bytesInstruccion = "";
             if (instruccion == "ADD")
             {
                 //A <- (A) + (m..m + 2)
                 iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                int iValorM = Convert.ToInt32(valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString(), 16);
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                if (sRegM == "")
+                    sRegM = "00";
+                int iValorM = Convert.ToInt32(sRegM, 16);
                 iRegistroA = iRegistroA + iValorM;
+                m = $"{iRegistroA:X}";
                 bytesInstruccion = sCodigo + m;
                 this.sRegistroA = $"{iRegistroA:X}";
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "ADD m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "ADD m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "AND")
             {
                 //A <- (A) & (m..m + 2)
                 iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                int iValorM = Convert.ToInt32(valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString(), 16);
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                if (sRegM == "")
+                    sRegM = "00";
+                int iValorM = Convert.ToInt32(sRegM, 16);
                 iRegistroA = iRegistroA & iValorM;
+                m = $"{iRegistroA:X}";
                 bytesInstruccion = sCodigo + m;
                 this.sRegistroA = $"{iRegistroA:X}";
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "AND m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "ADD m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "COMP")
             {
                 //A : (m..m+2)
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                sRegistroM = valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString();
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
                 iRegistroM = Convert.ToInt32(sRegistroM);
+                iRegistroA = Convert.ToInt32(sRegistroA);
                 if (iRegistroM > iRegistroA)
                 {
                     this.CC = ">";
@@ -297,7 +335,7 @@ namespace Ensamblador_SIC
                     this.CC = "=";
                 }
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "COMP m", "CC <- " + this.CC));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "COMP m", "CC <- " + this.CC));
                 sCP = $"{i + 3:X}";
 
             }
@@ -305,31 +343,34 @@ namespace Ensamblador_SIC
             {
                 //A <- (A) / (m..m + 2)
                 iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                int iValorM = Convert.ToInt32(valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString(), 16);
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                if (sRegM == "")
+                    sRegM = "00";
+                int iValorM = Convert.ToInt32(sRegM, 16);
                 iRegistroA = iRegistroA / iValorM;
+                m = $"{iRegistroA:X}";
                 bytesInstruccion = sCodigo + m;
                 this.sRegistroA = $"{iRegistroA:X}";
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "DIV m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "ADD m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "J")
             {
                 //CP <- m
-                this.sCP = m;
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                this.sCP = sRegM;
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(this.sCP, bytesInstruccion, "CP m", "CP <- " + this.sCP));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "CP m", "CP <- " + this.sCP));
             }
             if (instruccion == "JEQ")
             {
                 //CP <- m si CC =
                 if (CC == "=")
                 {
-                    this.sCP = m;
-                    List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
+                    string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                    this.sCP = sRegM;
                     bytesInstruccion = sCodigo + m;
-                    this.programa.Add(new Ejecucion(this.sCP, bytesInstruccion, "JEQ m", "CP <- " + this.sCP));
+                    this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "CP m", "CP <- " + this.sCP));
                 }
             }
             if (instruccion == "JGT")
@@ -337,10 +378,10 @@ namespace Ensamblador_SIC
                 //CP <- m si CC >
                 if (CC == ">")
                 {
-                    this.sCP = m;
-                    List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
+                    string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                    this.sCP = sRegM;
                     bytesInstruccion = sCodigo + m;
-                    this.programa.Add(new Ejecucion(this.sCP, bytesInstruccion, "JGT m", "CP <- " + this.sCP));
+                    this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "CP m", "CP <- " + this.sCP));
                 }
             }
             if (instruccion == "JLT")
@@ -348,10 +389,10 @@ namespace Ensamblador_SIC
                 //CP <- m si CC >
                 if (CC == "<")
                 {
-                    this.sCP = m;
-                    List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
+                    string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                    this.sCP = sRegM;
                     bytesInstruccion = sCodigo + m;
-                    this.programa.Add(new Ejecucion(this.sCP, bytesInstruccion, "JLT m", "CP <- " + this.sCP));
+                    this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "CP m", "CP <- " + this.sCP));
                 }
             }
             if (instruccion == "JSUB")
@@ -360,82 +401,134 @@ namespace Ensamblador_SIC
                 //CP <- m;
                 this.sRegistroL = this.sCP;
                 this.sCP = m;
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(this.sCP, bytesInstruccion, "JSUB m", "L <- " + this.sRegistroL + "; CP <-" + this.sCP));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "JSUB m", "L <- " + this.sRegistroL + "; CP <-" + this.sCP));
             }
             if (instruccion == "LDA")
             {
                 //A <- (m)...(m+2)
-                iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                sRegistroA = valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString();
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                sRegistroA = sRegM;
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "LDA m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "LDA m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "LDCH")
             {
                 //A <- [Byte mas a la derecha de m]
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
                 iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                sRegistroA = valorM[0].ToString().Substring(1);
+                //List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
+                sRegistroA = sRegM[0].ToString().Substring(1);
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "LDCH m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "LDCH m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "LDL")
             {
                 //L <- (m)...(m+2)
-                iRegistroL = Convert.ToInt32(this.sRegistroL, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                sRegistroL = valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString();
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                sRegistroL = sRegM;
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "LDL m", "L <- " + this.sRegistroL));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "LDA m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "LDX")
             {
                 //X <- (m)...(m+2)
-                iRegistroX = Convert.ToInt32(this.sRegistroX, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                sRegistroX = valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString();
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                sRegistroX = sRegM;
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "LDX m", "L <- " + this.sRegistroX));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "LDA m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "MUL")
             {
                 //A <- (A) * (m..m + 2)
                 iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                int iValorM = Convert.ToInt32(valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString(), 16);
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                if (sRegM == "")
+                    sRegM = "00";
+                int iValorM = Convert.ToInt32(sRegM, 16);
                 iRegistroA = iRegistroA * iValorM;
+                m = $"{iRegistroA:X}";
                 bytesInstruccion = sCodigo + m;
                 this.sRegistroA = $"{iRegistroA:X}";
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "MUL m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "ADD m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "OR")
             {
                 //A <- (A) | (m..m + 2)
                 iRegistroA = Convert.ToInt32(this.sRegistroA, 16);
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
-                int iValorM = Convert.ToInt32(valorM[0].ToString() + valorM[1].ToString() + valorM[2].ToString(), 16);
+                string sRegM = this.registroM(Convert.ToInt32(m, 16));
+                if (sRegM == "")
+                    sRegM = "00";
+                int iValorM = Convert.ToInt32(sRegM, 16);
                 iRegistroA = iRegistroA | iValorM;
+                m = $"{iRegistroA:X}";
                 bytesInstruccion = sCodigo + m;
                 this.sRegistroA = $"{iRegistroA:X}";
-                this.programa.Add(new Ejecucion(cp, bytesInstruccion, "OR m", "A <- " + this.sRegistroA));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "ADD m", "A <- " + this.sRegistroA));
                 sCP = $"{i + 3:X}";
             }
             if (instruccion == "RSUB")
             {
                 //PC <- L
                 this.sRegistroPC = sRegistroL;
-                List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
+                //List<int> valorM = this.valorM(Convert.ToInt32(m, 16));
                 bytesInstruccion = sCodigo + m;
-                this.programa.Add(new Ejecucion(this.sCP, bytesInstruccion, "PC m", "PC <- " + this.sRegistroPC));
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "PC m", "PC <- " + this.sRegistroPC));
                 sCP = $"{i + 3:X}";
+            }
+            if (instruccion == "STA")
+            {
+                //m .. m + 2 <- (A)
+                int iRegM = Convert.ToInt32(m, 16);
+                this.modificarM(iRegM, sRegistroA);
+                bytesInstruccion = sCodigo + this.valorM(iRegM);
+                this.programa.Add(new Ejecucion($"{cp:X}", bytesInstruccion, "PC m", "PC <- " + this.sRegistroPC));
+                sCP = $"{i + 3:X}";
+            }
+
+        }
+
+        private void modificarM(int registroM, string sNuevoValor)
+        {
+            int iInstruccion = 0;
+            int inicioProgrma = Convert.ToInt32(this.sTamaInicial, 16);
+            int finalProgrma = Convert.ToInt32(this.sTamaFinal, 16);
+            int iPosicion = inicioProgrma;
+            bool bandera = false;
+
+            string uno = sNuevoValor[0].ToString() + sNuevoValor[1].ToString();
+            string dos = sNuevoValor[2].ToString() + sNuevoValor[3].ToString();
+            string tres = sNuevoValor[4].ToString() + sNuevoValor[5].ToString();
+
+            List<string> nuevaM = new List<string>();
+            nuevaM.Add(uno);
+            nuevaM.Add(dos);
+            nuevaM.Add(tres);
+
+            foreach (var item in this.dMapaMemoria)
+            {
+                for (int iC = 0; iC < 16; iC++)
+                {
+                    if (iPosicion == registroM)
+                    {
+                        bandera = true;
+                    }
+                    if (bandera)
+                    {
+                        item.Value[iC] = nuevaM[iInstruccion];
+                        iInstruccion++;
+                    }
+                    if (iInstruccion == 2)
+                    {
+                        bandera = false;
+                        break;
+                    }
+                }
             }
         }
 

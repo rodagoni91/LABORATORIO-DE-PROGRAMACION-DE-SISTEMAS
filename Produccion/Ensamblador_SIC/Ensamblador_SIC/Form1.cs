@@ -1078,7 +1078,7 @@ namespace Ensamblador_SIC
                 for (int t = 0; t < 16; t++)
                 {
                     if (d.Value[t].Length >= 4)
-                        d.Value[t] = "---";
+                        d.Value[t] = "00";
                 }
                 this.dataGridView4.Rows.Add(d.Key, d.Value[0], d.Value[1], d.Value[2], d.Value[3], d.Value[4], d.Value[5], d.Value[6], d.Value[7], d.Value[8], d.Value[9], d.Value[10], d.Value[11], d.Value[12], d.Value[13], d.Value[14], d.Value[15]);
             }
