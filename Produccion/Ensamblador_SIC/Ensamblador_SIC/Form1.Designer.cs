@@ -75,6 +75,14 @@
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -141,7 +150,7 @@
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Location = new System.Drawing.Point(1016, 242);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(315, 207);
+            this.groupBox2.Size = new System.Drawing.Size(315, 188);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Errores";
@@ -153,21 +162,22 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox2.Size = new System.Drawing.Size(303, 175);
+            this.textBox2.Size = new System.Drawing.Size(303, 156);
             this.textBox2.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1024, 667);
+            this.button1.Location = new System.Drawing.Point(1019, 645);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(307, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Procesar Programa";
+            this.button1.Text = "Procesar Programa SIC Standard";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dataGridView5);
             this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Location = new System.Drawing.Point(285, 29);
             this.groupBox3.Name = "groupBox3";
@@ -194,6 +204,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(712, 313);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Visible = false;
             // 
             // CP
             // 
@@ -244,7 +255,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dataGridView3);
-            this.groupBox5.Location = new System.Drawing.Point(1016, 455);
+            this.groupBox5.Location = new System.Drawing.Point(1016, 433);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(315, 206);
             this.groupBox5.TabIndex = 8;
@@ -283,7 +294,7 @@
             this.groupBox6.Controls.Add(this.textBox3);
             this.groupBox6.Location = new System.Drawing.Point(644, 375);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(366, 316);
+            this.groupBox6.Size = new System.Drawing.Size(366, 334);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Programa Objeto";
@@ -295,7 +306,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox3.Size = new System.Drawing.Size(354, 290);
+            this.textBox3.Size = new System.Drawing.Size(354, 309);
             this.textBox3.TabIndex = 0;
             // 
             // groupBox4
@@ -340,7 +351,7 @@
             this.groupBox7.Controls.Add(this.dataGridView4);
             this.groupBox7.Location = new System.Drawing.Point(13, 375);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(625, 315);
+            this.groupBox7.Size = new System.Drawing.Size(625, 334);
             this.groupBox7.TabIndex = 11;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Mapa de Memoria";
@@ -369,7 +380,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(7, 20);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 30;
-            this.dataGridView4.Size = new System.Drawing.Size(612, 289);
+            this.dataGridView4.Size = new System.Drawing.Size(612, 308);
             this.dataGridView4.TabIndex = 0;
             // 
             // Column20
@@ -468,11 +479,76 @@
             this.Column19.Name = "Column19";
             this.Column19.Width = 38;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1019, 680);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(307, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Procesar Programa SIC XE";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column25,
+            this.Column21,
+            this.Column22,
+            this.Column23,
+            this.Column24,
+            this.Column26});
+            this.dataGridView5.Location = new System.Drawing.Point(7, 20);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
+            this.dataGridView5.Size = new System.Drawing.Size(712, 313);
+            this.dataGridView5.TabIndex = 1;
+            this.dataGridView5.Visible = false;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "Formato";
+            this.Column25.Name = "Column25";
+            this.Column25.ReadOnly = true;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "C.P.";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            // 
+            // Column22
+            // 
+            this.Column22.HeaderText = "Simbolo";
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "Instruccion / Directiva";
+            this.Column23.Name = "Column23";
+            this.Column23.ReadOnly = true;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "Direccion";
+            this.Column24.Name = "Column24";
+            this.Column24.ReadOnly = true;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "Modo de Direccionamiento";
+            this.Column26.Name = "Column26";
+            this.Column26.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1334, 699);
+            this.ClientSize = new System.Drawing.Size(1334, 711);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox6);
@@ -503,6 +579,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,6 +633,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
     }
 }
 

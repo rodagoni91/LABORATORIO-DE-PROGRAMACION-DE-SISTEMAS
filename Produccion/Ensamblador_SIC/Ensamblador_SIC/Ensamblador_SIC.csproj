@@ -74,6 +74,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Programa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sicXE.g4.lexer.cs">
+      <DependentUpon>sicXE.g4</DependentUpon>
+    </Compile>
+    <Compile Include="sicXE.g4.parser.cs">
+      <DependentUpon>sicXE.g4</DependentUpon>
+    </Compile>
     <Compile Include="SIC_gramatica.g4.lexer.cs">
       <DependentUpon>SIC_gramatica.g4</DependentUpon>
     </Compile>
@@ -107,6 +113,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Antlr4 Include="SIC_gramatica.g4">
+      <Generator>MSBuild:Compile</Generator>
+      <CustomToolNamespace>Ensamblador_SIC</CustomToolNamespace>
+    </Antlr4>
+    <Antlr4 Include="sicXE.g4">
       <Generator>MSBuild:Compile</Generator>
       <CustomToolNamespace>Ensamblador_SIC</CustomToolNamespace>
     </Antlr4>

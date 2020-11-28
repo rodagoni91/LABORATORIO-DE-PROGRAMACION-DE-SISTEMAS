@@ -59,6 +59,8 @@ namespace Ensamblador_SIC
             textBox2.Text = "";
             sPrograma = "";
             sPrograma = this.textBox1.Text;
+            this.dataGridView1.Visible = true;
+            this.dataGridView5.Visible = false;
             var entrada = sPrograma + Environment.NewLine;
             byte[] byteArray = Encoding.ASCII.GetBytes(entrada);
             MemoryStream stream = new MemoryStream(byteArray);
@@ -104,6 +106,8 @@ namespace Ensamblador_SIC
             this.dataGridView3.Refresh();
             this.dataGridView4.Rows.Clear();
             this.dataGridView4.Refresh();
+            this.dataGridView5.Rows.Clear();
+            this.dataGridView5.Refresh();
         }
 
         private void separarPrograma()
@@ -1176,6 +1180,304 @@ namespace Ensamblador_SIC
         {
             textBox1.ScrollBars = ScrollBars.Vertical;
             textBox1.WordWrap = false;
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            //SIC XE
+            sPrograma = "";
+            sPrograma = this.textBox1.Text;
+            this.dataGridView1.Visible = false;
+            this.dataGridView5.Visible = true;
+            var entrada = sPrograma + Environment.NewLine;
+            byte[] byteArray = Encoding.ASCII.GetBytes(entrada);
+            MemoryStream stream = new MemoryStream(byteArray);
+            var parametro1 = new AntlrInputStream(entrada);
+            sicXELexer lex = new sicXELexer(parametro1);
+            //SIC_gramaticaLexer lex = new SIC_gramaticaLexer(parametro1);
+            //CREAMOS UN LEXER CON LA CADENA QUE ESCRIBIO EL USUARIO
+            Antlr4.Runtime.CommonTokenStream tokens = new Antlr4.Runtime.CommonTokenStream(lex);
+            //CREAMOS LOS TOKENS SEGUN EL LEXER CREADO
+            sicXEParser parser = new sicXEParser(tokens);
+            //SIC_gramaticaParser parser = new SIC_gramaticaParser(tokens);
+            //CREAMOS EL PARSER CON LOS TOKENS CREADOS
+            try
+            {
+                parser.programa();
+                this.tablaSimbolos = new List<TabSim>();
+                this.limpiarDataGrids();
+                this.separarPrograma();
+                this.separarEtiquetas();
+                this.separarInstrucciones();
+                this.separDirecciones();
+            }
+            catch (Exception error)
+            {
+                //Console.Error.WriteLine(e.StackTrace);
+                MessageBox.Show("A ocurrido un error inesperado " + error.Message);
+            }
+
+
+        }
+
+        private int formatoInstruccion(string instruccion)
+        {
+            List<string> formato1 = new List<string> { "FIX", "FLOAT", "HIO", "NORM", "SIO", "TIO" };
+            List<string> formato2 = new List<string> { "CLEAR", "ADDR", "COMPR", "DIVR", "MULR", "SHIFTL", "SHIFTR", "SUBR", "SVC", "TIXR" };
+            List<string> formato3y4 = new List<string> { "ADD", "ADDF", "AND", "COMP", "COMPRF", "DIV", "DIVF", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDB", "LDCH", "LDF", "LDL", "LDS", "LDT", "LDX", "LPS", "MUL", "MULF", "OR", "RD", "RSUB", "SSK", "STA", "STB", "STCH", "STF", "STI", "STL", "STS", "STSW", "STT", "STX", "SUB", "SUBF", "TD", "TIX", "WD" };
+            List<string> directivas = new List<string> { "BYTE", "WORD", "RESB", "RESW", "BASE", "USE", "EQU" };
+            //'BYTE' | 'WORD' | 'RESB' | 'RESW' | 'BASE' | 'USE' | 'EQU'
+            if (formato1.Contains(instruccion))
+            {
+                return 1;
+            }
+            else if (formato2.Contains(instruccion))
+            {
+                return 2;
+            }
+
+            if (instruccion.Contains("+"))
+            {
+                string ins = instruccion.Substring(1);
+                if (formato3y4.Contains(ins))
+                {
+                    return 4;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else if (formato3y4.Contains(instruccion))
+            {
+                return 3;
+            }
+
+            if (directivas.Contains(instruccion))
+            {
+                return 0;
+            }
+            else
+            {
+                return -1;
+            }
+
+        }
+
+
+        private bool existeInstruccionXE(string instruccion)
+        {
+            //List<string> listaInstrucciones = new List<string>() { "START", "END", "END", "BYTE", "ADD", "WORD", "RESB", "RESW", "AND", "COMP", "DIV", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDCH", "LDL", "LDX", "MUL", "OR", "RD", "RSUB", "STA", "STCH", "STL", "STSW", "STX", "SUB", "TD", "TIX", "WD" };
+            List<string> formato1 = new List<string> { "FIX", "FLOAT", "HIO", "NORM", "SIO", "TIO" };
+            List<string> formato2 = new List<string> { "CLEAR", "ADDR", "COMPR", "DIVR", "MULR", "SHIFTL", "SHIFTR", "SUBR", "SVC", "TIXR" };
+            List<string> formato3y4 = new List<string> { "ADD", "ADDF", "AND", "COMP", "COMPRF", "DIV", "DIVF", "J", "JEQ", "JGT", "JLT", "JSUB", "LDA", "LDB", "LDCH", "LDF", "LDL", "LDS", "LDT", "LDX", "LPS", "MUL", "MULF", "OR", "RD", "RSUB", "SSK", "STA", "STB", "STCH", "STF", "STI", "STL", "STS", "STSW", "STT", "STX", "SUB", "SUBF", "TD", "TIX", "WD" };
+            //List<string> directivas = new List<string> { "BYTE", "WORD", "RESB", "RESW", "BASE", "USE", "EQU" };
+            if (formato1.Contains(instruccion) || formato2.Contains(instruccion) || formato3y4.Contains(instruccion))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void calcularDireccionesXE()
+        {
+            string dirHexa = "";
+            int iDirDec = 0;
+            int iPos = 0;
+            int iTotal = 0;
+            textBox2.Text = "Errores en el Paso No. 1 \r\n";
+
+            string errores = "";
+            foreach (var linea in this.ensamblador.programa)
+            {
+                if (this.ensamblador.programa.IndexOf(linea) == 0)
+                {
+                    linea.sDireccionHEXA = lDirecciones[0].sDireccionHexadecimal.Trim('H');
+                    dirHexa = lDirecciones[0].sDireccionHexadecimal;
+                    dirHexa = dirHexa.Trim('H');
+                    dirHexa = dirHexa.Trim('h');
+                    iDirDec = Convert.ToInt32(dirHexa.ToString(), 16);
+                    linea.sDireccionamiento = "----";
+                }
+
+                else
+                {
+                    if (linea.sCodigoOp == "BYTE")
+                    {
+                        int iCount = 0;
+                        if (this.lDirecciones[iPos].cRegistro == 'C')
+                        {
+                            string palabra = "";
+                            foreach (var c in this.lDirecciones[iPos].sPalabra)
+                            {
+                                if (c != "'"[0])
+                                {
+                                    palabra = palabra + c;
+                                }
+                                else
+                                {
+                                    iCount++;
+                                }
+                            }
+                            if (iCount == 2)
+                            {
+                                iTotal = palabra.Length;
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = iDirDec + iTotal;
+                                linea.sDireccionamiento = "----";
+                            }
+                            else
+                            {
+                                linea.sDireccionamiento = "Error de Sintaxis";
+                                errores = errores + "Error de Sintaxis en: " + this.lDirecciones[iPos].sPalabra + "\r\n";
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                            }
+                        }
+                        else if (this.lDirecciones[iPos].cRegistro == 'X' && this.lDirecciones[iPos].sDireccionHexadecimal != null)
+                        {
+                            string palabra = "";
+                            foreach (var c in linea.sDireccion)
+                            {
+                                if (c != "'"[0])
+                                {
+                                    palabra = palabra + c;
+                                }
+                                else
+                                {
+                                    iCount++;
+                                }
+                            }
+                            if (iCount == 2)
+                            {
+                                iTotal = this.lDirecciones[iPos].sDireccionHexadecimal.Length;
+                                if (iTotal % 2 == 0)
+                                    iTotal = iTotal / 2;
+                                else
+                                    iTotal = (iTotal / 2) + 1;
+
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = iDirDec + iTotal;
+                                linea.sDireccionamiento = "----";
+                            }
+                            else
+                            {
+                                linea.sDireccionamiento = "Error de Sintaxis";
+                                errores = errores + "Error de Sintaxis en: " + linea.sDireccion + "\r\n";
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                            }
+                        }
+                    }
+                    else if (linea.sCodigoOp == "WORD")
+                    {
+                        dirHexa = $"{iDirDec:X}";
+                        linea.sDireccionHEXA = dirHexa;
+                        iDirDec = iDirDec + 3;
+                        linea.sDireccionamiento = "----";
+                    }
+                    else if (linea.sCodigoOp == "RESW")
+                    {
+                        if (this.lDirecciones[iPos].iNumeroDecimal != 0)
+                        {
+                            int iNuevo = this.lDirecciones[iPos].iNumeroDecimal * 3;
+                            dirHexa = $"{iDirDec:X}";
+                            linea.sDireccionHEXA = dirHexa;
+                            iDirDec = iDirDec + iNuevo;
+                            linea.sDireccionamiento = "----";
+                        }
+                    }
+                    else if (this.existeInstruccionXE(linea.sCodigoOp))
+                    {
+                        if (this.existeInstruccionXE(linea.sEtiqueta) == true)
+                        {
+                            linea.sDireccionamiento = "Error de Sintaxis";
+                            errores = errores + "Error de Sintaxis en: " + linea.sEtiqueta + "\n";
+                            dirHexa = $"{iDirDec:X}";
+                            linea.sDireccionHEXA = dirHexa;
+                        }
+                        else
+                        {
+
+                            if(this.formatoInstruccion(linea.sCodigoOp) == 1)
+                            {
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = iDirDec + 1;
+                            }
+                            else if (this.formatoInstruccion(linea.sCodigoOp) == 2)
+                            {
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = iDirDec + 2;
+                            }
+                            else if (this.formatoInstruccion(linea.sCodigoOp) == 3)
+                            {
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = iDirDec + 3;
+                            }
+                            else if (this.formatoInstruccion(linea.sCodigoOp) == 4)
+                            {
+                                dirHexa = $"{iDirDec:X}";
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = iDirDec + 4;
+                            }
+
+                            if(linea.sCodigoOp == "ORG")
+                            {
+                                dirHexa = linea.sDireccion.Trim('H').ToString();
+                                linea.sDireccionHEXA = dirHexa;
+                                iDirDec = Convert.ToInt32(dirHexa,16);
+                            }
+
+
+                            if (linea.sDireccion != null && linea.sCodigoOp != "END")
+                            {
+                                if (linea.sDireccion.Contains("@"))
+                                {
+                                    linea.sDireccionamiento = "Indirecto";
+                                }
+                                else if (linea.sDireccion.Contains("#"))
+                                {
+                                    linea.sDireccionamiento = "Inmediato";
+                                }
+                                else
+                                {
+                                    linea.sDireccionamiento = "Simple";
+                                }
+                            }
+                            else if (linea.sDireccion == null && linea.sCodigoOp == "RSUB" || linea.sCodigoOp == "END")
+                            {
+                                linea.sDireccionamiento = "----";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        linea.sDireccionamiento = "Error, Instruccion no Existe.\n";
+                        errores = errores + "Error, Instruccion " + linea.sCodigoOp + " no Existe.\r\n";
+                        dirHexa = $"{iDirDec:X}";
+                        linea.sDireccionHEXA = dirHexa;
+
+                    }
+                }
+                iPos++;
+            }
+            if (errores == "")
+            {
+                errores = "Sin Errores en el Paso No. 1\r\n";
+                textBox2.Text = errores;
+            }
+            else
+            {
+                textBox2.Text = textBox2.Text + errores;
+            }
         }
     }
 }
