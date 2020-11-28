@@ -1210,6 +1210,7 @@ namespace Ensamblador_SIC
                 this.separarEtiquetas();
                 this.separarInstrucciones();
                 this.separDirecciones();
+                this.calcularDireccionesXE();
             }
             catch (Exception error)
             {
@@ -1263,7 +1264,6 @@ namespace Ensamblador_SIC
             }
 
         }
-
 
         private bool existeInstruccionXE(string instruccion)
         {
@@ -1477,6 +1477,16 @@ namespace Ensamblador_SIC
             else
             {
                 textBox2.Text = textBox2.Text + errores;
+            }
+        }
+
+        private void llenarDataGridXE()
+        {
+            int iPos = 1;
+            foreach (var linea in this.ensamblador.programa)
+            {
+                this.dataGridView5.Rows.Add(this.formatoInstruccion(linea.sEtiqueta).ToString(),linea.sDireccionHEXA, linea.sEtiqueta, linea.sCodigoOp, linea.sDireccion, linea.sDireccionamiento, linea.sCodigoObjeto);
+                iPos++;
             }
         }
     }
