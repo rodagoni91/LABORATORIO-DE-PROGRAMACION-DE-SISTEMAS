@@ -16,6 +16,15 @@ namespace Ensamblador_SIC
         private string sTamaInicial;
         private string sTamaFinal;
         private string sPrograma;
+
+        private string sRegistroB;
+        private string sRegistroS;
+        private string sRegistroT;
+        private string sRegistroF;
+        private string sRegistroA;
+        private string sRegistroX;
+        private string sRegistroL;
+
         private Programa ensamblador;
         private List<Etiqueta> etiquetas;
         private List<Instruccion> instrucciones;
@@ -1212,6 +1221,8 @@ namespace Ensamblador_SIC
                 this.separDirecciones();
                 this.calcularDireccionesXE();
                 this.crearTabSimXE();
+                this.iniciarRegistros();
+                this.codigoOBJXE();
             }
             catch (Exception error)
             {
@@ -1220,6 +1231,52 @@ namespace Ensamblador_SIC
             }
 
 
+        }
+
+        private void iniciarRegistros()
+        {
+            this.sRegistroA = "0";
+            this.sRegistroB = "3";
+            this.sRegistroF = "6";
+            this.sRegistroL = "2";
+            this.sRegistroS = "4";
+            this.sRegistroT = "5";
+            this.sRegistroX = "1";
+           
+        }
+
+        private string regresarRegistro(string registro)
+        {
+            if(registro == "A")
+            {
+                return "0";
+            }
+            else if(registro == "B")
+            {
+                return "3";
+            }
+            else if(registro == "F")
+            {
+                return "6";
+            }
+            else if(registro == "L")
+            {
+                return "2"; 
+            }
+            else if(registro == "S")
+            {
+                return "4";
+            }
+            else if(registro == "T")
+            {
+                return "5";
+            }
+            else if(registro == "X")
+            {
+                return "1";
+            }
+
+            return "ERROR registro no existe";
         }
 
         private int formatoInstruccion(string instruccion)
@@ -1600,7 +1657,7 @@ namespace Ensamblador_SIC
                 textBox2.Text = textBox2.Text + errores;
             }
 
-            this.llenarDataGridXE();
+           
         }
 
         private void llenarDataGridXE()
@@ -1610,12 +1667,12 @@ namespace Ensamblador_SIC
             {
                 string formato = "----";
 
-                     formato = this.formatoInstruccion(linea.sCodigoOp).ToString();
+                formato = this.formatoInstruccion(linea.sCodigoOp).ToString();
                 if (formato == "-1" || formato == "0")
                 {
                     formato = "----";
                 }
-                this.dataGridView5.Rows.Add(formato, linea.sDireccionHEXA, linea.sEtiqueta, linea.sCodigoOp, linea.sDireccion, linea.sDireccionamiento);
+                this.dataGridView5.Rows.Add(formato, linea.sDireccionHEXA, linea.sCodigoObjeto, linea.sEtiqueta, linea.sCodigoOp, linea.sDireccion, linea.sDireccionamiento);
                 iPos++;
             }
         }
@@ -1660,5 +1717,376 @@ namespace Ensamblador_SIC
                 return false;
             }
         }
+
+        private string codInsXE(string instruccion)
+        {
+            if (instruccion == "ADD")
+            {
+                return ("000110");
+            }
+            else if (instruccion == "ADDF")
+            {
+                return ("010110");
+            }
+            else if (instruccion == "ADDR")
+            {
+                return ("90");
+            }
+            else if (instruccion == "AND")
+            {
+                return ("010000");
+            }
+            else if (instruccion == "CLEAR")
+            {
+                return ("B4");
+            }
+            else if (instruccion == "COMP")
+            {
+                return ("001010");
+            }
+            else if (instruccion == "COMPF")
+            {
+                return ("100010");
+            }
+            else if (instruccion == "COMPR")
+            {
+                return ("A0");
+            }
+            else if (instruccion == "DIV")
+            {
+                return ("001001");
+            }
+            else if (instruccion == "DIVR")
+            {
+                return ("9C");
+            }
+            else if (instruccion == "FIX")
+            {
+                return ("C4");
+            }
+            else if (instruccion == "FLOAT")
+            {
+                return ("C0");
+            }
+            else if (instruccion == "HIO")
+            {
+                return ("F4");
+            }
+            else if (instruccion == "J")
+            {
+                return ("001111");
+            }
+            else if (instruccion == "JEQ")
+            {
+                return ("001100");
+            }
+            else if (instruccion == "JGT")
+            {
+                return ("001101");
+            }
+            else if (instruccion == "JLT")
+            {
+                return ("001110");
+            }
+            else if (instruccion == "JSUB")
+            {
+                return ("010010");
+            }
+            else if (instruccion == "LDA")
+            {
+                return ("000000");
+            }
+            else if (instruccion == "LDB")
+            {
+                return ("011010");
+            }
+            else if (instruccion == "LDCH")
+            {
+                return ("010100");
+            }
+            else if (instruccion == "LDF")
+            {
+                return ("011100");
+            }
+            else if (instruccion == "LDL")
+            {
+                return ("000010");
+            }
+            else if (instruccion == "LDS")
+            {
+                return ("011011");
+            }
+            else if (instruccion == "LDT")
+            {
+                return ("011101");
+            }
+            else if (instruccion == "LDX")
+            {
+                return ("000001");
+            }
+            else if (instruccion == "LPS")
+            {
+                return ("110100");
+            }
+            else if (instruccion == "MUL")
+            {
+                return ("001000");
+            }
+            else if (instruccion == "MULF")
+            {
+                return ("011000");
+            }
+            else if (instruccion == "MULR")
+            {
+                return ("98");
+            }
+            else if (instruccion == "NORM")
+            {
+                return ("C8");
+            }
+            else if (instruccion == "OR")
+            {
+                return ("010001");
+            }
+            else if (instruccion == "RD")
+            {
+                return ("110110");
+            }
+            else if (instruccion == "RMO")
+            {
+                return ("AC");
+            }
+            else if (instruccion == "RSUB")
+            {
+                return ("010011");
+            }
+            else if (instruccion == "SHIFTL")
+            {
+                return ("A4");
+            }
+            else if (instruccion == "SHIFTR")
+            {
+                return ("A8");
+            }
+            else if (instruccion == "SIO")
+            {
+                return ("F0");
+            }
+            else if (instruccion == "SSK")
+            {
+                return ("111011");
+            }
+            else if (instruccion == "STA")
+            {
+                return ("000011");
+            }
+            else if (instruccion == "STB")
+            {
+                return ("011110");
+            }
+            else if (instruccion == "STCH")
+            {
+                return ("010101");
+            }
+            else if (instruccion == "STF")
+            {
+                return ("100000");
+            }
+            else if (instruccion == "STI")
+            {
+                return ("110101");
+            }
+            else if (instruccion == "STL")
+            {
+                return ("000101");
+            }
+            else if (instruccion == "STS")
+            {
+                return ("011111");
+            }
+            else if (instruccion == "STSW")
+            {
+                return ("111010");
+            }
+            else if (instruccion == "STT")
+            {
+                return ("100001");
+            }
+            else if (instruccion == "STX")
+            {
+                return ("000100");
+            }
+            else if (instruccion == "SUB")
+            {
+                return ("000111");
+            }
+            else if (instruccion == "SUBF")
+            {
+                return ("010111");
+            }
+            else if (instruccion == "SUBR")
+            {
+                return ("94");
+            }
+            else if (instruccion == "SVC")
+            {
+                return ("B0");
+            }
+            else if (instruccion == "TD")
+            {
+                return ("111000");
+            }
+            else if (instruccion == "TIO")
+            {
+                return ("F8");
+            }
+            else if (instruccion == "TIX")
+            {
+                return ("001011");
+            }
+            else if (instruccion == "TIXR")
+            {
+                return ("B8");
+            }
+            else if (instruccion == "WS")
+            {
+                return ("110111");
+            }
+
+            return "ERROR";
+        }
+
+        private string valorNumero(string valor)
+        {
+            try
+            {
+                int iV =  Convert.ToInt32(valor, 16);
+                return valor;
+            }
+            catch
+            {
+                return "ERROR SINTACTICO";
+            }
+        }
+
+        private void codigoOBJXE()
+        {
+            foreach (var linea in this.ensamblador.programa)
+            {
+                if (this.ensamblador.programa.IndexOf(linea) == 0)
+                {
+                    linea.sCodigoObjeto = "--------";
+                }
+                else
+                {
+                    if (linea.sCodigoOp == "BASE" || linea.sCodigoOp == "RESW" || linea.sCodigoOp == "RESB" || linea.sCodigoOp == "END")
+                    {
+                        linea.sCodigoObjeto = "--------";
+                    }
+                    else if (linea.sCodigoOp == "BYTE")
+                    {
+                        if (linea.sDireccion.Contains("C\"") && linea.sDireccion[0] == 'C')
+                        {
+                            linea.sCodigoObjeto = this.codigoCadena(linea.sDireccion);
+                            //l.sDireccionamiento = "DIRECTO";
+                        }
+                        else if (linea.sDireccion.Contains("X\"") && linea.sDireccion[0] == 'X' || linea.sDireccion.Contains("X\'") && linea.sDireccion[0] == 'X')
+                        {
+
+                            string hexa = linea.sDireccion.ToString();
+                            if (linea.sDireccion.Length < 4)
+                            {
+                                switch (hexa.Length)
+                                {
+                                    case 1:
+                                        hexa = "000" + hexa;
+                                        break;
+
+                                    case 2:
+                                        hexa = "00" + hexa;
+                                        break;
+
+                                    case 3:
+                                        hexa = "0" + hexa;
+                                        break;
+
+                                }
+
+                                linea.sCodigoObjeto = this.obtenerCodigo(hexa);
+                            }
+                            else
+                            {
+                                linea.sCodigoObjeto = this.obtenerCodigo(linea.sDireccion);
+                                //l.sDireccionamiento = "DIRECTO";
+                            }
+                        }
+                    }
+                    else if (linea.sCodigoOp == "WORD")
+                    {
+                        int iCodigo = Int32.Parse(linea.sDireccion);
+                        string hexa = iCodigo.ToString("X");
+                        if (hexa.Length <= 5)
+                        {
+                            switch (hexa.Length)
+                            {
+                                case 1:
+                                    hexa = "00000" + hexa;
+                                    break;
+
+                                case 2:
+                                    hexa = "0000" + hexa;
+                                    break;
+
+                                case 3:
+                                    hexa = "000" + hexa;
+                                    break;
+
+                                case 4:
+                                    hexa = "00" + hexa;
+                                    break;
+
+                                case 5:
+                                    hexa = "0" + hexa;
+                                    break;
+                            }
+                        }
+
+                        linea.sCodigoObjeto = hexa;
+                    }
+                    else if (this.formatoInstruccion(linea.sCodigoOp) == 1)
+                    {
+                        linea.sCodigoObjeto = this.codInsXE(linea.sCodigoOp);
+                    }
+                    else if(this.formatoInstruccion(linea.sCodigoOp) == 2)
+                    {
+                        linea.sCodigoObjeto = this.codInsXE(linea.sCodigoOp);
+
+                        if(linea.sDireccion.Length >= 1)
+                        {
+                            string trim = ",";
+                            string[] aRegistros = linea.sDireccion.Split(trim[0]);
+                            foreach(var a in aRegistros)
+                            {
+                                if(a == "A" || a == "B" || a == "F" || a == "L" || a == "S" || a == "T" || a == "X")
+                                {
+                                    linea.sCodigoObjeto = linea.sCodigoObjeto + this.regresarRegistro(a);
+                                }
+                                else if (this.valorNumero(a) != "ERROR SINTACTICO")
+                                {
+                                    linea.sCodigoObjeto = linea.sCodigoObjeto + a;
+                                }
+                                else if (this.valorNumero(a) == "ERROR SINTACTICO")
+                                {
+                                    linea.sCodigoObjeto = "ERROR SINTACTICO";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            this.llenarDataGridXE();
+        }
+
     }
 }
